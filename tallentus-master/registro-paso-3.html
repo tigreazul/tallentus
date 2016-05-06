@@ -1,0 +1,421 @@
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Tallentus - Registro Paso 3</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="script/materialize/css/materialize.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
+    <link href="assets/css/waves.css" rel="stylesheet"/>
+
+    <!-- Base MasterSlider style sheet -->
+    <link rel="stylesheet" href="assets/masterslider/style/masterslider.css" />
+    <link href="assets/masterslider/skins/default/style.css" rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300|Roboto:100,400,300,500,700,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">LOGO</a>
+                </div>
+                <div id="micuenta" class="navbar-collapse collapse pull-right">
+                    <div class="pull-right">
+                        <img src="assets/img/user_new.svg" class="img-circle img-responsive">
+                    </div>
+                    <div class="pull-right">
+                        <p class="text-right">Bienvenido</p>
+                        <h5 class="text-right"><a href="mi-cuenta.html">prueba@gmail.com</a></h5>
+                    </div>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="banner">
+        <!-- masterslider -->
+        <div class="master-slider ms-skin-default" id="masterslider">
+            <!-- new slide -->
+            <div class="ms-slide slide-1" data-delay="14">
+                <img src="assets/masterslider/blank.gif" data-src="assets/img/bg_registro.jpg" alt="Slide1 background">
+            </div>
+            <!-- end of slide -->
+        </div>
+        <div class="step">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-lg-offset-1 step-ok">
+                        <div class="icon pull-left">
+                            <img src="assets/img/step-ok.svg">
+                        </div>
+                        <div class="txt pull-left">Registro y<br>Verificación</div>
+                    </div>
+                    <div class="col-md-4 step-ok">
+                        <hr class="line">
+                        <div class="txt pull-right">Areas de<br>trabajo</div>
+                        <div class="icon pull-right">
+                            <img src="assets/img/step-ok.svg">
+                        </div>
+                    </div>
+                    <div class="col-md-4 step-not">
+                        <hr class="line">
+                        <div class="txt pull-right">Mis datos<br>personales</div>
+                        <div class="icon pull-right">
+                            <img src="assets/img/step-add.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row registro">
+            <div class="col-md-12 titulo">
+                <h3>Mis datos</h3>
+                <h4>Ingrese todos sus datos personales</h4>
+            </div>
+        </div>
+
+        <div class="row registro">
+            <form action="mi-cuenta.html" method="post" class="registro_final">
+                <div class="col-md-2 mg30">
+                    <div class="row bg">
+                        <div class="image_upload">
+                            <img src="assets/img/user_load.svg" class="img-responsive img-center">
+                        </div>
+                        <div class="file-field input-field">
+                            <div class="btn btn-red">
+                                <span>Imagen</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Cargar...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 mg30">
+
+                    <div class="row bg">
+
+                        <div class="col-md-2">
+                            <div class="input-field">
+                                <input placeholder="Ingrese sus nombres" id="nombres" type="text" class="validate">
+                                <label for="first_name">Nombres</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="input-field">
+                                <input placeholder="Ingrese sus apellidos" id="apellidos" type="text" class="validate">
+                                <label for="first_name">Apellidos</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="input-field">
+                                <input placeholder="Ingrese su correo electronico o e-mail" id="email" type="email" class="validate">
+                                <label for="first_name">Correo Electronico o E-mail</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 selects">
+                            <div class="input-field">
+
+                                <div class="col-md-4">
+                                    <select class="select-materialcss">
+                                        <option value="" disabled selected>día</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">..</option>
+                                        <option value="4">..</option>
+                                        <option value="4">..</option>
+                                        <option value="4">..</option>
+                                        <option value="4">..</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <select class="select-materialcss">
+                                        <option value="" disabled selected>mes</option>
+                                        <option value="1">Ene</option>
+                                        <option value="2">Feb</option>
+                                        <option value="3">Mar</option>
+                                        <option value="3">...</option>
+                                        <option value="3">...</option>
+                                        <option value="3">...</option>
+                                        <option value="3">Nov</option>
+                                        <option value="3">Dic</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <select class="select-materialcss">
+                                        <option value="" disabled selected>año</option>
+                                        <option value="1">2015</option>
+                                        <option value="2">2014</option>
+                                        <option value="3">2013</option>
+                                        <option value="3">...</option>
+                                        <option value="3">...</option>
+                                        <option value="3">...</option>
+                                        <option value="3">1960</option>
+                                        <option value="3">1959</option>
+                                    </select>
+                                </div>
+
+                                <label for="first_name">Fecha de nacimiento</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="input-field">
+                                <select class="select-materialcss">
+                                    <option value="" disabled selected>Seleccione doc.</option>
+                                    <option value="1">DNI</option>
+                                    <option value="2">Carnet de Extranjeria</option>
+                                    <option value="3">Otro</option>
+                                </select>
+                                <label for="first_name">Documento identidad</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="input-field">
+                                <input placeholder="Ingrese su número" id="email" type="text" class="validate">
+                                <label for="first_name">Número de documento</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="col-md-4 selects padL0">
+                                <div class="input-field">
+                                    <select class="select-materialcss">
+                                        <option value="" disabled selected>Seleccione sexo</option>
+                                        <option value="1">Masculino</option>
+                                        <option value="2">Femenino</option>
+                                    </select>
+                                    <label for="first_name">Sexo</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-field">
+                                    <input placeholder="Ingrese su nro. fijo" id="email" type="text" class="validate">
+                                    <label for="first_name">Telefono fijo</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4 padR0">
+                                <div class="input-field">
+                                    <input placeholder="Ingrese su nro. celular" id="email" type="text" class="validate">
+                                    <label for="first_name">Celular</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="input-field">
+                                <input type="checkbox" id="test5" />
+                                <label for="test5">Poseo algún tipo de discapacidad</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="input-field">
+                                <input placeholder="Ingrese su ripo de discapacidad" id="email" type="text" class="validate">
+                                <label for="first_name">Por favor, indica que tipo de discapacidad posees</label>
+                                <span class="help-text">No es obligatorio que declares ningún tipo de discapacidad; pero si lo
+                                    haces, podemos ayudarte a que te encuentren aquellas empresas que dispongan de puestos
+                                    que mejor se adapten a tus necesidades.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-12 mg30">
+                    <p class="text-center">
+                        <button class="btn btn-red btn-send">Finalizar</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+    </div> <!-- /container -->
+
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Bolsa de Trabajo</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Buscar empleos</a></li>
+                                    <li><a href="#">Empresas</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Candidatos</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Ingresa CV</a></li>
+                                    <li><a href="#">Modificar CV</a></li>
+                                    <li><a href="#">Eliminar CV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Envió de Ofertas</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Ofertas en su buzón</a></li>
+                                    <li><a href="#">Modificar suscripción</a></li>
+                                    <li><a href="#">Eliminar suscripción</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Empresas</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Registre su empresa</a></li>
+                                    <li><a href="#">Entrar al sistema</a></li>
+                                    <li><a href="#">Panel de control</a></li>
+                                    <li><a href="#">Buscar CV</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="row">
+                            <h3>Suscribete</h3>
+                            <form method="post" class="frm">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-justify">Suscribete a nuestro boletin, para recibir las ultimas ofertas!</p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <span class="icon-envelope"></span>
+                                            <input type="text" class="form-control" placeholder="Correo electrónico" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12"><button class="waves" type="submit">Suscribirse</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 tipos-pagos">
+                    <h3>Aceptamos</h3>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/paypal.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/visa.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/mastercard.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/american_express.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="text">TODAS LAS TARJETAS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid sub-footer">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left redes">
+                    <a class="tw"><span class="icon-twitter"></span></a>
+                    <a class="fb"><span class="icon-facebook"></span></a>
+                    <a class="in"><span class="icon-instagram"></span></a>
+                    <a class="lk"><span class="icon-linkedin-square"></span></a>
+                </p>
+                <p class="pull-right">
+                    © 2015-2016 TALLENTIS, Todos los Derechos Reservados  |  <a>TERMINOS Y CONDICIONES</a>  |  <a>LIBRO DE RECLAMACIONES</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/tallentus.js"></script>
+    <script src="assets/masterslider/jquery.easing.min.js"></script>
+    <!-- Master Slider -->
+    <script src="assets/masterslider/masterslider.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            $('.select-materialcss').material_select();
+        });
+
+        Waves.init();
+        Waves.attach('.waves');
+
+        var slider = new MasterSlider();
+        slider.setup('masterslider' , {
+            width:1500,    // slider standard width
+            height:210,   // slider standard height
+            space:1,
+            layout:'fullwidth',
+            loop:true,
+            preload:0,
+            autoplay:true
+        });
+
+    </script>
+    <script src="script/materialize/js/materialize.js"></script>
+</body>
+</html>

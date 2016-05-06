@@ -1,0 +1,20 @@
+.bn10{
+	margin-bottom: 10px;
+}
+
+.for_label{
+    margin-top: 12px;
+    text-align: right;
+}
+
+.error {
+	color:red !important;
+}
+
+.none{
+	display: none;
+}
+
+.block{
+	display: block;
+}

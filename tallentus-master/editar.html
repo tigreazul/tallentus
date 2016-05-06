@@ -1,0 +1,615 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Tallentus - Mi cuenta</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/materialize/css/materialize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
+    <link href="assets/css/waves.css" rel="stylesheet"/>
+
+    <!-- Base MasterSlider style sheet -->
+    <link rel="stylesheet" href="assets/masterslider/style/masterslider.css" />
+    <link href="assets/masterslider/skins/default/style.css" rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300|Roboto:100,400,300,500,700,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="container">
+                <!-- LOGO -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">LOGO</a>
+                </div>
+                <!-- /LOGO -->
+                <!-- SEARCH-CV -->
+                <div class="col-md-8 col-lg-offset-1 search_nav">
+                    <form class="form-horizontal form-search" action="search.html" method="post">
+                        <div class="input-bg col-md-7">
+                            <div class="form-group">
+                                <input type="text" class="form-control" >
+                                <a class="btn btn-default" href="#modalFooter">
+                                    <img src="assets/img/settings.svg" width="20">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button class="btn btn-red waves pull-right" type="submit">Buscar ofertas</button>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <a class="btn btn-link waves-effect " href="editar-cv.html">Actualizar CV</a>
+                        </div>
+                    </form>
+                </div>
+                <!-- /SEARCH-CV -->
+                <!-- CUENTA -->
+                <div id="micuenta" class="navbar-collapse collapse pull-right">
+                    <div class="pull-right">
+                        <img src="assets/img/user_new.svg" class="img-circle img-responsive">
+                    </div>
+                    <div class="pull-right">
+                        <p class="text-right">Bienvenido</p>
+                        <h5 class="text-right"><a href="mi-cuenta.html">prueba@gmail.com</a></h5>
+                    </div>
+                </div>
+                <!-- /CUENTA -->
+            </div>
+        </div>
+        <div class="container-fluid date">
+            <div class="container">
+                <p class="text-right"><span class="icon-calendar-1">12 de setiembre de 2015</span></p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid" id="info-micuenta">
+        <div class="container info-head padB15">
+            <div class="col-md-2">
+                <img src="assets/img/user_new.svg" class="img-responsive img-center img-circle" width="100%">
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="datos">
+                            <h2>Neyber Becerra Zapata</h2>
+                            <p>
+                                <i><img src="assets/img/map-marker.svg" class="img-small"></i>Lima, Perú
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 areas text-right">
+                        <div class="row">
+                            <span class="chip">Comercial de Ventas</span>
+                            <span class="chip">Atención al Cliente</span>
+                            <span class="chip">Operaciones</span>
+                            <span class="chip">Transporte</span>
+                            <span class="chip">Seguridad</span>
+                            <a class="chip btn grey lighten-4" href="editar-areas.html">Editar áreas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container" id="editar-cuenta">
+        <aside class="col-md-12">
+            <div class="row" id="breadcrumb">
+                <nav>
+                    <div class="nav-wrapper">
+                        <div class="col s12">
+                            <a href="mi-cuenta.html" class="breadcrumb">Mi cuenta</a>
+                            <a href="#!" class="breadcrumb">Editar datos</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="row bg pad0_15" id="tabs">
+                <div class="row">
+                    <!-- TABS -->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <ul class="tabs">
+                                <li class="tab"><a class="active" href="#datos">Datos Personales</a></li>
+                                <li class="tab"><a href="#perfil">Perfil</a></li>
+                                <li class="tab"><a href="#password">Contraseña</a></li>
+                                <li class="tab"><a href="#notificaciones">Correo / Notificaciones</a></li>
+                                <li class="tab"><a href="#redes">Redes Sociales</a></li>
+                                <li class="tab"><a href="#privacidad">Privacidad</a></li>
+                                <li class="tab"><a href="#eliminar">Eliminar Cuenta</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /TABS -->
+                    <!-- DATOS -->
+                    <div id="datos" class="col-md-12">
+
+                        <div class="row registro">
+
+                            <form method="post" action="#" class="registro_final">
+
+                                <div class="col-md-2">
+                                    <div class="input-field">
+                                        <input placeholder="Ingrese sus nombres" id="nombres" type="text" class="validate">
+                                        <label for="first_name">Nombres</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="input-field">
+                                        <input placeholder="Ingrese sus apellidos" id="apellidos" type="text" class="validate">
+                                        <label for="first_name">Apellidos</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-field">
+                                        <input placeholder="Ingrese su correo electronico o e-mail" id="email" type="email" class="validate">
+                                        <label for="first_name">Correo Electronico o E-mail</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 selects">
+                                    <div class="input-field">
+
+                                        <div class="col-md-4">
+                                            <select class="select-materialcss">
+                                                <option value="" disabled selected>día</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">..</option>
+                                                <option value="4">..</option>
+                                                <option value="4">..</option>
+                                                <option value="4">..</option>
+                                                <option value="4">..</option>
+                                                <option value="30">30</option>
+                                                <option value="31">31</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <select class="select-materialcss">
+                                                <option value="" disabled selected>mes</option>
+                                                <option value="1">Ene</option>
+                                                <option value="2">Feb</option>
+                                                <option value="3">Mar</option>
+                                                <option value="3">...</option>
+                                                <option value="3">...</option>
+                                                <option value="3">...</option>
+                                                <option value="3">Nov</option>
+                                                <option value="3">Dic</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <select class="select-materialcss">
+                                                <option value="" disabled selected>año</option>
+                                                <option value="1">2015</option>
+                                                <option value="2">2014</option>
+                                                <option value="3">2013</option>
+                                                <option value="3">...</option>
+                                                <option value="3">...</option>
+                                                <option value="3">...</option>
+                                                <option value="3">1960</option>
+                                                <option value="3">1959</option>
+                                            </select>
+                                        </div>
+
+                                        <label for="first_name">Fecha de nacimiento</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="input-field">
+                                        <select class="select-materialcss">
+                                            <option value="" disabled selected>Seleccione doc.</option>
+                                            <option value="1">DNI</option>
+                                            <option value="2">Carnet de Extranjeria</option>
+                                            <option value="3">Otro</option>
+                                        </select>
+                                        <label for="first_name">Documento identidad</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="input-field">
+                                        <input placeholder="Ingrese su número" id="email" type="text" class="validate">
+                                        <label for="first_name">Número de documento</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="col-md-4 selects padL0">
+                                        <div class="input-field">
+                                            <select class="select-materialcss">
+                                                <option value="" disabled selected>Seleccione sexo</option>
+                                                <option value="1">Masculino</option>
+                                                <option value="2">Femenino</option>
+                                            </select>
+                                            <label for="first_name">Sexo</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-field">
+                                            <input placeholder="Ingrese su nro. fijo" id="email" type="text" class="validate">
+                                            <label for="first_name">Telefono fijo</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padR0">
+                                        <div class="input-field">
+                                            <input placeholder="Ingrese su nro. celular" id="email" type="text" class="validate">
+                                            <label for="first_name">Celular</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="input-field">
+                                        <input type="checkbox" id="test5" />
+                                        <label for="test5">Poseo algún tipo de discapacidad</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="input-field">
+                                        <input placeholder="Ingrese su ripo de discapacidad" id="email" type="text" class="validate">
+                                        <label for="first_name">Por favor, indica que tipo de discapacidad posees</label>
+                                        <span class="help-text">No es obligatorio que declares ningún tipo de discapacidad; pero si lo
+                                            haces, podemos ayudarte a que te encuentren aquellas empresas que dispongan de puestos
+                                            que mejor se adapten a tus necesidades.</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="input-field">
+                                        <button type="submit" class="btn btn-red waves-effect waves-red pull-right"><span class="glyphicon glyphicon-floppy-disk"></span> Actualizar datos</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                    <!-- /DATOS -->
+                    <!-- PERFIL -->
+                    <div id="perfil" class="col-md-12">
+                        <div class="row registro">
+                            <form method="post" action="#" class="registro_final">
+                                <!-- IMAGEN -->
+                                <div class="col-md-2">
+                                        <div class="image_upload">
+                                            <img src="assets/img/user_load.svg" class="img-responsive img-center">
+                                        </div>
+                                        <div class="file-field input-field">
+                                            <div class="btn btn-red">
+                                                <span>Imagen</span>
+                                                <input type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text" placeholder="Cargar...">
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- /IMAGEN -->
+                                <!-- DATOS -->
+                                <div class="col-md-10">
+                                    <div class="col-md-12">
+                                        <div class="input-field">
+                                            <input placeholder="Ingrese sus apodo" id="apodo" type="text" class="validate" length="30">
+                                            <label for="first_name">Apodo</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="input-field">
+                                            <textarea placeholder="Ingrese su biografia" id="bio" class="materialize-textarea" length="500"></textarea>
+                                            <label for="bio">Biografia</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="input-field">
+                                            <button type="submit" class="btn btn-red waves-effect waves-red pull-right"><span class="glyphicon glyphicon-floppy-disk"></span> Actualizar perfil</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /DATOS -->
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /PERFIL -->
+                    <!-- PASSWORD -->
+                    <div id="password" class="col-md-12">
+                        <div class="row registro">
+                            <form method="post" action="#" class="registro_final">
+                                <div class="col-md-4">
+                                    <div class="input-field">
+                                        <input id="password" type="password" placeholder="Ingresar contraseña antigua" class="validate">
+                                        <label for="password">Contraseña antigua</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-field">
+                                        <input id="password1" type="password" placeholder="Ingresar contraseña nueva" class="validate">
+                                        <label for="password1">Contraseña nueva</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-field">
+                                        <input id="password2" type="password" placeholder="Repetir contraseña nueva" class="validate">
+                                        <label for="password2">Repetir contraseña nueva</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="input-field">
+                                        <button type="submit" class="btn btn-red waves-effect waves-red pull-right"><span class="glyphicon glyphicon-floppy-disk"></span> Actualizar contraseña</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /PASSWORD -->
+                    <!-- NOTIFICACIONES -->
+                    <div id="notificaciones" class="col-md-12">
+                        <div class="row registro">
+                            <form action="editar_submit" method="post" accept-charset="utf-8" class="registro_final">
+                                <div class="col-md-12">
+                                    <div class="input-field">
+                                        <input type="checkbox" id="resumen" />
+                                        <label for="resumen">Resumen de actividad</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="checkbox" id="tallentus" />
+                                        <label for="tallentus">Notificaciones de Tallentus</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="checkbox" id="recomendados" />
+                                        <label for="recomendados">Envió de avisos recomendados</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="checkbox" id="especiales" />
+                                        <label for="especiales">Avisos especiales</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <button type="submit" class="btn btn-red waves-effect waves-red pull-right"><span class="glyphicon glyphicon-floppy-disk"></span> Actualizar notificaciones`</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /NOTIFICACIONES -->
+                    <!-- REDES -->
+                    <div id="redes" class="col-md-12">
+                        <div class="row registro">
+                            <div class="center btn-datos">
+                                <p>Vincula tu cuenta de Facebook o Linkedin a Tallentus.com e ingresa mucho mas rápido y fácil.<br>Nadie podrá visualizar tus datos de ninguna de tus cuentas vinculadas.</p>
+                                <a href="#" class="btn light-blue darken-3 fb"><i><img src="assets/img/facebook_user.svg" class="img-small"></i>Vincular con Facebook</a>
+                                <a href="#" class="btn light-blue accent-1 in"><i><img src="assets/img/LinkedIn_user.svg" class="img-small"></i>Vincular con Linkedin</a>
+                                <p>-</p>
+                                <a href="#" class="btn light-blue darken-3 fb"><i><img src="assets/img/facebook_user.svg" class="img-small"></i>Desvincular con Facebook</a>
+                                <a href="#" class="btn light-blue accent-1 in"><i><img src="assets/img/LinkedIn_user.svg" class="img-small"></i>Desvincular con Linkedin</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /REDES -->
+                    <!-- PRIVACIDAD -->
+                    <div id="privacidad" class="col-md-12">
+                        <div class="row registro">
+                            <form action="editar_submit" method="post" accept-charset="utf-8" class="registro_final">
+                                <div class="col-md-12">
+                                    <div class="input-field">
+                                        <input name="group1" type="radio" id="publico" />
+                                        <label for="publico">Público: Tu CV es visible para la búsqueda de empresas.</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input name="group1" type="radio" id="privado" />
+                                        <label for="privado">Privado: Tu CV solo es visible para los empleos que postulas.</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="input-field">
+                                        <button type="submit" class="btn btn-red waves-effect waves-red pull-right"><span class="glyphicon glyphicon-floppy-disk"></span> Actualizar privacidad</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /PRIVACIDAD -->
+                    <!-- ELIMINAR -->
+                    <div id="eliminar" class="col-md-12">
+                        <div class="row registro">
+                            <form method="post" action="#" class="registro_final">
+                                <!-- DATOS -->
+                                <div class="col-md-12">
+                                    <div class="input-field">
+                                        <p>Eliminando tu cuenta y tu CV  de Tallentus no podrás postularte a mas avisos ni utilizar los servicios.<br><br></p>
+                                    </div>
+                                    <div class="input-field">
+                                        <textarea placeholder="Ingrese su motivo" id="motivo" class="materialize-textarea" length="500"></textarea>
+                                        <label for="motivo">Motivo de la eliminación de cuenta</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input placeholder="Ingrese sus contraseña" id="pwd" type="password" class="validate">
+                                        <label for="first_name">Contraseña</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="checkbox" id="acepto" />
+                                        <label for="acepto">Acepto eliminar mi cuenta de manera irreversible.</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <button type="submit" class="btn btn-red waves-effect waves-red pull-right"><span class="glyphicon glyphicon-remove"></span> Eliminar cuenta</button>
+                                    </div>
+                                </div>
+                                <!-- /DATOS -->
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /ELIMINAR -->
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Bolsa de Trabajo</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Buscar empleos</a></li>
+                                    <li><a href="#">Empresas</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Candidatos</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Ingresa CV</a></li>
+                                    <li><a href="#">Modificar CV</a></li>
+                                    <li><a href="#">Eliminar CV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Envió de Ofertas</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Ofertas en su buzón</a></li>
+                                    <li><a href="#">Modificar suscripción</a></li>
+                                    <li><a href="#">Eliminar suscripción</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Empresas</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Registre su empresa</a></li>
+                                    <li><a href="#">Entrar al sistema</a></li>
+                                    <li><a href="#">Panel de control</a></li>
+                                    <li><a href="#">Buscar CV</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="row">
+                            <h3>Suscribete</h3>
+                            <form method="post" class="frm">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-justify">Suscribete a nuestro boletin, para recibir las ultimas ofertas!</p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <span class="icon-envelope"></span>
+                                            <input type="text" class="form-control" placeholder="Correo electrónico" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12"><button class="waves" type="submit">Suscribirse</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 tipos-pagos">
+                    <h3>Aceptamos</h3>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/paypal.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/visa.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/mastercard.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/american_express.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="text">TODAS LAS TARJETAS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid sub-footer">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left redes">
+                    <a class="tw"><span class="icon-twitter"></span></a>
+                    <a class="fb"><span class="icon-facebook"></span></a>
+                    <a class="in"><span class="icon-instagram"></span></a>
+                    <a class="lk"><span class="icon-linkedin-square"></span></a>
+                </p>
+                <p class="pull-right">
+                    © 2015-2016 TALLENTIS, Todos los Derechos Reservados  |  <a>TERMINOS Y CONDICIONES</a>  |  <a>LIBRO DE RECLAMACIONES</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/materialize/js/materialize.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/tallentus.js"></script>
+    <script src="assets/masterslider/jquery.easing.min.js"></script>
+    <!-- Master Slider -->
+    <script src="assets/masterslider/masterslider.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+
+        Waves.init();
+        Waves.attach('.waves');
+
+        $(document).ready(function(){
+            $('ul.tabs').tabs('select_tab', 'tab_id');
+            $('.select-materialcss').material_select();
+        });
+
+    </script>
+</body>
+</html>

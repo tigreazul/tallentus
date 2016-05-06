@@ -1,0 +1,631 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Tallentus</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
+    <link href="assets/css/waves.css" rel="stylesheet"/>
+
+    <!-- Base MasterSlider style sheet -->
+    <link rel="stylesheet" href="assets/masterslider/style/masterslider.css" />
+    <link href="assets/masterslider/skins/default/style.css" rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300|Roboto:100,400,300,500,700,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">LOGO</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse pull-right">
+                    <a href="#register" role="button" data-toggle="modal" data-target="#modalLogin">Registrate</a> o
+                    <a href="#login" role="button" data-toggle="modal" data-target="#modalLogin">Iniciar sesión</a>
+                    <a href="#login" role="button" data-toggle="modal" data-target="#modalLogin" class="btn-login-empresa pull-right waves">Mi empresa</a>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </div>
+        <div class="container-fluid date">
+            <div class="container">
+                <p class="text-right"><span class="icon-calendar-1">12 de setiembre de 2015</span></p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="banner">
+        <!-- masterslider -->
+        <div class="master-slider ms-skin-default" id="masterslider">
+            <!-- new slide -->
+            <div class="ms-slide slide-1" data-delay="14">
+                <img src="assets/masterslider/blank.gif" data-src="assets/img/baner.jpg" alt="Slide1 background">
+            </div>
+            <!-- end of slide -->
+        </div>
+        <div class="search">
+            <div class="container">
+                <div class="col-md-10 col-lg-offset-1">
+                    <form class="form-inline">
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <span class="icon-search-outline"></span>
+                                <input type="text" class="form-control" id="inputSearch" placeholder="Programador web, electricista, abogado, etc.">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-default waves">Buscar empleos</button>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="#">Búsqueda avanzada</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row suscribirse">
+            <form method="post" class="frm">
+                <div class="col-md-6">
+                    <p>Suscribete a nuestro boletin, para recibir las ultimas ofertas!</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <span class="icon-envelope"></span>
+                        <input type="text" class="form-control" placeholder="Correo electrónico" required>
+                    </div>
+                </div>
+                <div class="col-md-2"><button class="waves" type="submit">Suscribirse</button></div>
+            </form>
+        </div>
+        <!-- Example row of columns -->
+        <div class="row">
+            <aside class="sidebar col-md-2">
+                <div class="row bg">
+                    <div class="col-md-12 pad15">
+                        <h5>Cargar CV</h5>
+                        <form class="form-horizontal frm" action="registro-paso-2.html" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Correo electrónico" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Contraseña" required>
+                            </div>
+                            <button class="waves" type="submit">Crear cuenta  y cargar CV</button>
+                            <p class="text-justify help-block">Al hacer clic en ”Crear cuenta“ acepto los <a href="#">términos y condiciones.</a></p>
+                            <hr>
+                            <button class="waves btn-secondary" type="button">Ingresar con Facebook</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row bg mgTop15 menu-usuario">
+                    <div class="col-md-12 pad15">
+                        <ul class="list-unstyled">
+                            <li class="h3"><span><img src="assets/img/bolsa.svg"></span>Bolsa de Trabajo</li>
+                            <li><a href="#" class="active">Buscar empleos</a></li>
+                            <li><a href="#">Empresas</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li class="h3"><span><img src="assets/img/candidatos.svg"></span>Candidatos</li>
+                            <li><a href="#">Ingresa CV</a></li>
+                            <li><a href="#">Modificar CV</a></li>
+                            <li><a href="#">Eliminar CV</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li class="h3"><span><img src="assets/img/ofertas.svg"></span>Envio de ofertas</li>
+                            <li><a href="#">Ofertas en su buzón</a></li>
+                            <li><a href="#">Modificar suscripnción</a></li>
+                            <li><a href="#">Eliminar suscripción</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li class="h3"><span><img src="assets/img/empresa.svg"></span>Empresas</li>
+                            <li><a href="#">Registre su empresa</a></li>
+                            <li><a href="#">Entrar al sistema</a></li>
+                            <li><a href="#">Panel de control</a></li>
+                            <li><a href="#">Buscar CV</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <article class="col-md-10">
+                <section class="row bg">
+                    <div class="col-md-12">
+                        <h5>Selecciona una localidad <a href="#" class="link">Ver todas...</a></h5>
+                    </div>
+                    <div class="col-md-12">
+                        <ul class="list-unstyled lst-ubicacion row">
+                            <li class="col-md-3"><a href="#">Lima</a><span class="label label-default">700</span></li>
+                            <li class="col-md-3"><a href="#">Ate Vitarte</a><span class="label label-default">357</span></li>
+                            <li class="col-md-3"><a href="#">San Borja</a> <span class="label label-default">337</span></li>
+                            <li class="col-md-3"><a href="#">Chorrillos</a> <span class="label label-default">258</span></li>
+                            <li class="col-md-3"><a href="#">Santa Anita</a> <span class="label label-default">184</span></li>
+                            <li class="col-md-3"><a href="#">Distrito de San Isidro</a> <span class="label label-default">970</span></li>
+                            <li class="col-md-3"><a href="#">Miraflores</a> <span class="label label-default">598</span></li>
+                            <li class="col-md-3"><a href="#">Callao</a> <span class="label label-default">594</span></li>
+                            <li class="col-md-3"><a href="#">Santiago de Surco</a> <span class="label label-default">396</span></li>
+                            <li class="col-md-3"><a href="#">La Victoria</a> <span class="label label-default">177</span></li>
+                            <li class="col-md-3"><a href="#">Surquillo</a> <span class="label label-default">160</span></li>
+                            <li class="col-md-3"><a href="#">Villa El Salvador</a> <span class="label label-default">122</span></li>
+                            <li class="col-md-3"><a href="#">Jesús María</a> <span class="label label-default">119</span></li>
+                            <li class="col-md-3"><a href="#">Distrito de San Isidrio</a> <span class="label label-default">117</span></li>
+                            <li class="col-md-3"><a href="#">La Victoria</a> <span class="label label-default">177</span></li>
+                            <li class="col-md-3"><a href="#">Surquillo</a> <span class="label label-default">160</span></li>
+                            <li class="col-md-3"><a href="#">Villa El Salvador</a> <span class="label label-default">122</span></li>
+                            <li class="col-md-3"><a href="#">Jesús María</a> <span class="label label-default">119</span></li>
+                            <li class="col-md-3"><a href="#">Distrito de San Isidrio</a> <span class="label label-default">117</span></li>
+                            <li class="col-md-3"><a href="#">Chorrillos</a> <span class="label label-default">258</span></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="row bg empleos-premiun pad15">
+                    <h6 class="text-center">Empleos</h6>
+                    <div class="lst_empleos">
+                        <div class="col-md-12" data-type="empleo">
+                            <div class="img pull-left"><img src="upload/item-empresa.jpg" class="img-circle"> </div>
+                            <div class="info pull-left">
+                                <h3>Practicante de Mecánica Industrial</h3>
+                                <h4>Representaciones Martín S.A.C</h4>
+                                <div class="bio">¡No pierdas esta gran oportunidad de desarrollo personal y profesional! Allus Global BPO Center es la compañía líder de
+                                Latinoamérica en servicios de relacionamiento con clientes desde hace 17 años ( ...</div>
+                                <p><span>Callao</span> / Full-Time / Ayer</p>
+                            </div>
+                            <div class="pull-right">
+                                <a href="#" class="btn-red waves pull-right">Presentarse hoy día</a>
+                            </div>
+                        </div>
+                        <div class="col-md-12" data-type="empleo">
+                            <div class="img pull-left"><img src="upload/item-empresa.jpg" class="img-circle"> </div>
+                            <div class="info pull-left">
+                                <h3>Practicante de Mecánica Industrial</h3>
+                                <h4>Representaciones Martín S.A.C</h4>
+                                <div class="bio">¡No pierdas esta gran oportunidad de desarrollo personal y profesional! Allus Global BPO Center es la compañía líder de
+                                Latinoamérica en servicios de relacionamiento con clientes desde hace 17 años ( ...</div>
+                                <p><span>Callao</span> / Full-Time / Ayer</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12" data-type="empleo">
+                            <div class="img pull-left"><img src="upload/item-empresa.jpg" class="img-circle"> </div>
+                            <div class="info pull-left">
+                                <h3>Practicante de Mecánica Industrial</h3>
+                                <h4>Representaciones Martín S.A.C</h4>
+                                <div class="bio">¡No pierdas esta gran oportunidad de desarrollo personal y profesional! Allus Global BPO Center es la compañía líder de
+                                Latinoamérica en servicios de relacionamiento con clientes desde hace 17 años ( ...</div>
+                                <p><span>Callao</span> / Full-Time / Ayer</p>
+                            </div>
+                            <div class="pull-right">
+                                <a href="#" class="btn-red waves pull-right">Presentarse hoy día</a>
+                            </div>
+                        </div>
+                        <div class="col-md-12" data-type="empleo">
+                            <div class="img pull-left"><img src="upload/item-empresa.jpg" class="img-circle"> </div>
+                            <div class="info pull-left">
+                                <h3>Practicante de Mecánica Industrial</h3>
+                                <h4>Representaciones Martín S.A.C</h4>
+                                <div class="bio">¡No pierdas esta gran oportunidad de desarrollo personal y profesional! Allus Global BPO Center es la compañía líder de
+                                Latinoamérica en servicios de relacionamiento con clientes desde hace 17 años ( ...</div>
+                                <p><span>Callao</span> / Full-Time / Ayer</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12" data-type="empleo">
+                            <div class="img pull-left"><img src="upload/item-empresa.jpg" class="img-circle"> </div>
+                            <div class="info pull-left">
+                                <h3>Practicante de Mecánica Industrial</h3>
+                                <h4>Representaciones Martín S.A.C</h4>
+                                <div class="bio">¡No pierdas esta gran oportunidad de desarrollo personal y profesional! Allus Global BPO Center es la compañía líder de
+                                Latinoamérica en servicios de relacionamiento con clientes desde hace 17 años ( ...</div>
+                                <p><span>Callao</span> / Full-Time / Ayer</p>
+                            </div>
+                            <div class="pull-right">
+                                <a href="#" class="btn-red waves pull-right">Presentarse hoy día</a>
+                            </div>
+                        </div>
+                        <div class="col-md-12" data-type="empleo">
+                            <div class="img pull-left"><img src="upload/item-empresa.jpg" class="img-circle"> </div>
+                            <div class="info pull-left">
+                                <h3>Practicante de Mecánica Industrial</h3>
+                                <h4>Representaciones Martín S.A.C</h4>
+                                <div class="bio">¡No pierdas esta gran oportunidad de desarrollo personal y profesional! Allus Global BPO Center es la compañía líder de
+                                Latinoamérica en servicios de relacionamiento con clientes desde hace 17 años ( ...</div>
+                                <p><span>Callao</span> / Full-Time / Ayer</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12" data-type="empleo">
+                            <div class="img pull-left"><img src="upload/item-empresa.jpg" class="img-circle"> </div>
+                            <div class="info pull-left">
+                                <h3>Practicante de Mecánica Industrial</h3>
+                                <h4>Representaciones Martín S.A.C</h4>
+                                <div class="bio">¡No pierdas esta gran oportunidad de desarrollo personal y profesional! Allus Global BPO Center es la compañía líder de
+                                Latinoamérica en servicios de relacionamiento con clientes desde hace 17 años ( ...</div>
+                                <p><span>Callao</span> / Full-Time / Ayer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <a href="#" class="btn-red waves" data-type="button"><span><img src="assets/img/view-list.svg" class="img-responsive"> </span> Ver mas empleos</a>
+                    </div>
+                </section>
+
+            </article>
+        </div>
+        <hr>
+
+    </div> <!-- /container -->
+
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Bolsa de Trabajo</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Buscar empleos</a></li>
+                                    <li><a href="#">Empresas</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Candidatos</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Ingresa CV</a></li>
+                                    <li><a href="#">Modificar CV</a></li>
+                                    <li><a href="#">Eliminar CV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Envió de Ofertas</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Ofertas en su buzón</a></li>
+                                    <li><a href="#">Modificar suscripción</a></li>
+                                    <li><a href="#">Eliminar suscripción</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Empresas</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Registre su empresa</a></li>
+                                    <li><a href="#">Entrar al sistema</a></li>
+                                    <li><a href="#">Panel de control</a></li>
+                                    <li><a href="#">Buscar CV</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="row">
+                            <h3>Suscribete</h3>
+                            <form method="post" class="frm">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-justify">Suscribete a nuestro boletin, para recibir las ultimas ofertas!</p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <span class="icon-envelope"></span>
+                                            <input type="text" class="form-control" placeholder="Correo electrónico" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12"><button class="waves" type="submit">Suscribirse</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 tipos-pagos">
+                    <h3>Aceptamos</h3>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/paypal.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/visa.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/mastercard.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/american_express.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="text">TODAS LAS TARJETAS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid sub-footer">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left redes">
+                    <a class="tw"><span class="icon-twitter"></span></a>
+                    <a class="fb"><span class="icon-facebook"></span></a>
+                    <a class="in"><span class="icon-instagram"></span></a>
+                    <a class="lk"><span class="icon-linkedin-square"></span></a>
+                </p>
+                <p class="pull-right">
+                    © 2015-2016 TALLENTIS, Todos los Derechos Reservados  |  <a>TERMINOS Y CONDICIONES</a>  |  <a>LIBRO DE RECLAMACIONES</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEGIN # MODAL LOGIN -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <span class="brand-logo">LOGO</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+
+                    <!-- Begin # Login Form -->
+                    <form id="login-form">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <span><img src="assets/img/user.svg" class="img-responsive img-rounded"></span>
+                                <input type="text" class="form-control" placeholder="Usuario" required>
+                            </div>
+                            <div class="form-group">
+                                <span><img src="assets/img/pwd.svg" class="img-responsive img-rounded"></span>
+                                <input type="password" class="form-control" placeholder="Contraseña" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-group">
+                                <button class="waves btn-red" type="submit">Ingresar</button>
+                            </div>
+                            <div class="form-group">
+                                <button id="login_register_btn" type="button" class="btn-red btn-register">Registrarse</button>
+                            </div>
+                            <div>
+                                <button id="login_lost_btn" type="button" class="btn btn-link">Recuperar contraseña<img src="assets/img/help.svg"></button>
+                            </div>
+                            <div class="form-group login-redes">
+                                <p class="text-center">Inicia sesión con</p>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <a href="#" class="login-facebook"><span><img src="assets/img/facebook.svg"></span>facebook</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <a href="#" class="login-linkedin"><span><img src="assets/img/linkedIn.svg"></span>linkedin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End # Login Form -->
+
+                    <!-- Begin | Lost Password Form -->
+                    <form id="lost-form" style="display:none;">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <span><img src="assets/img/email.svg" class="img-responsive img-rounded"></span>
+                                <input type="email" class="form-control" placeholder="Correo electronico" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-group">
+                                <button type="submit" class="waves btn-red">Enviar</button>
+                            </div>
+                            <!--<div class="form-group">
+                                <button id="lost_login_btn" class="waves btn-red" type="submit">Ingresar</button>
+                            </div>
+                            <div class="form-group">
+                                <button id="lost_register_btn" type="button" class="waves btn-red btn-register">Registrarse</button>
+                            </div>-->
+                            <div class="form-group login-redes">
+                                <p class="text-center">Inicia sesión con</p>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <a href="#" class="login-facebook"><span><img src="assets/img/facebook.svg"></span>facebook</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <a href="#" class="login-linkedin"><span><img src="assets/img/linkedIn.svg"></span>linkedin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End | Lost Password Form -->
+
+                    <!-- Begin | Register Form -->
+                    <form id="register-form" style="display:none;">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <span><img src="assets/img/user.svg" class="img-responsive img-rounded"></span>
+                                <input type="text" class="form-control" placeholder="usuario" required>
+                            </div>
+                            <div class="form-group">
+                                <span><img src="assets/img/pwd.svg" class="img-responsive img-rounded"></span>
+                                <input type="password" class="form-control" placeholder="Contraseña" required>
+                            </div>
+                            <div class="form-group">
+                                <span><img src="assets/img/email.svg" class="img-responsive img-rounded"></span>
+                                <input type="email" class="form-control" placeholder="Correo electronico" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-group">
+                                <button type="submit" class="waves btn-red btn-register">Registrarse</button>
+                            </div>
+                            <div>
+                                <button id="register_lost_btn" type="button" class="waves btn-link">Recuperar contraseña<img src="assets/img/help.svg"></button>
+                            </div>
+                            <div class="form-group login-redes">
+                                <p class="text-center">Inicia sesión con</p>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <a href="#" class="login-facebook"><span><img src="assets/img/facebook.svg"></span>facebook</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <a href="#" class="login-linkedin"><span><img src="assets/img/linkedIn.svg"></span>linkedin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End | Register Form -->
+
+                </div>
+                <!-- End # DIV Form -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END # MODAL LOGIN -->
+
+    <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <span class="brand-logo">LOGO</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+
+                    <!-- Begin | Register Form -->
+                    <form id="register-form">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <span><img src="assets/img/user.svg" class="img-responsive img-rounded"></span>
+                                <input type="text" class="form-control" placeholder="usuario" required>
+                            </div>
+                            <div class="form-group">
+                                <span><img src="assets/img/pwd.svg" class="img-responsive img-rounded"></span>
+                                <input type="password" class="form-control" placeholder="Contraseña" required>
+                            </div>
+                            <div class="form-group">
+                                <span><img src="assets/img/email.svg" class="img-responsive img-rounded"></span>
+                                <input type="email" class="form-control" placeholder="Correo electronico" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="form-group">
+                                <button type="submit" class="waves btn-red btn-register">Registrarse</button>
+                            </div>
+                            <div>
+                                <button id="register_lost_btn" type="button" class="waves btn-link">Recuperar contraseña<img src="assets/img/help.svg"></button>
+                            </div>
+                            <div class="form-group login-redes">
+                                <p class="text-center">Inicia sesión con</p>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <a href="#" class="login-facebook"><span><img src="assets/img/facebook.svg"></span>facebook</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <a href="#" class="login-linkedin"><span><img src="assets/img/linkedIn.svg"></span>linkedin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End | Register Form -->
+
+                </div>
+                <!-- End # DIV Form -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END # MODAL LOGIN -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/tallentus.js"></script>
+    <script src="assets/masterslider/jquery.easing.min.js"></script>
+    <!-- Master Slider -->
+    <script src="assets/masterslider/masterslider.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+        Waves.init();
+        Waves.attach('.waves');
+
+        var slider = new MasterSlider();
+        slider.setup('masterslider' , {
+            width:1500,    // slider standard width
+            height:340,   // slider standard height
+            space:1,
+            layout:'fullwidth',
+            loop:true,
+            preload:0,
+            autoplay:true
+        });
+
+        var carrousel = new MasterSlider();
+        carrousel.setup('carousel' , {
+            loop:true,
+            width:240,
+            height:240,
+            speed:20,
+            view:'focus',
+            preload:0,
+            space:25,
+            wheel:true,
+            viewOptions:{centerSpace:1.6}
+        });
+        carrousel.control('arrows');
+        carrousel.control('slideinfo',{insertTo:'#staff-info'});
+
+    </script>
+</body>
+</html>

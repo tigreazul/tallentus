@@ -1,0 +1,373 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Tallentus - Mi cuenta</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/materialize/css/materialize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
+
+    <!-- Base MasterSlider style sheet -->
+    <link rel="stylesheet" href="assets/masterslider/style/masterslider.css" />
+    <link href="assets/masterslider/skins/default/style.css" rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300|Roboto:100,400,300,500,700,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="container">
+                <!-- LOGO -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">LOGO</a>
+                </div>
+                <!-- /LOGO -->
+                <!-- SEARCH-CV -->
+                <div class="col-md-8 col-lg-offset-1 search_nav">
+                    <form class="form-horizontal form-search" action="search.html" method="post">
+                        <div class="input-bg col-md-7">
+                            <div class="form-group">
+                                <input type="text" class="form-control" >
+                                <a class="btn btn-default" href="#modalFooter">
+                                    <img src="assets/img/settings.svg" width="20">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button class="btn btn-red waves pull-right" type="submit">Buscar ofertas</button>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <a class="btn btn-link waves-effect " href="editar-cv.html">Actualizar CV</a>
+                        </div>
+                    </form>
+                </div>
+                <!-- /SEARCH-CV -->
+                <!-- CUENTA -->
+                <div id="micuenta" class="navbar-collapse collapse pull-right">
+                    <div class="pull-right">
+                        <img src="assets/img/user_new.svg" class="img-circle img-responsive">
+                    </div>
+                    <div class="pull-right">
+                        <p class="text-right">Bienvenido</p>
+                        <h5 class="text-right"><a href="mi-cuenta.html">prueba@gmail.com</a></h5>
+                    </div>
+                </div>
+                <!-- /CUENTA -->
+            </div>
+        </div>
+        <div class="container-fluid date">
+            <div class="container">
+                <p class="text-right"><span class="icon-calendar-1">12 de setiembre de 2015</span></p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid" id="info-empresa">
+        <div class="container info-head">
+            <div class="col-md-12">
+                <nav class="row breadcrumbs">
+                    <div class="nav-wrapper">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <a href="#!" class="breadcrumb">Inicio</a>
+                                <a href="#!" class="breadcrumb">Educación</a>
+                                <a href="#!" class="breadcrumb">Docencia e investigación</a>
+                                <a href="#!" class="breadcrumb">Analista Asistente</a>
+                                <a href="#!" class="breadcrumb">ANALISTA DE MARKETING</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <h1>ANALISTA DE MARKETING</h1>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="row">
+                    <img src="assets/img/user_new.svg" class="img-responsive img-center img-circle" width="100%">
+                </div>
+            </div>
+            <div class="col-md-11">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="datos">
+                            <h2>Universidad Autonoma del Perú</h2>
+                            <p>
+                                <i><img src="assets/img/map-marker.svg" class="img-small"></i>Lima, Perú
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12 text-right btn-datos btn-empleo">
+                        <a class="waves-effect waves-light pull-right btn btn-red mgBot10 modal-trigger" href="#modal1">Postular a Ofertas</a><br>
+                        <a href="#!" class="waves-effect waves-red pull-right btn send-msg add_favorite" onclick="messageInfo(1);">Agregar a favoritos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container" id="historial-cuenta">
+        <article class="col-md-9">
+            <div class="row text-justify info">
+                <h3>Descripción de la Oferta</h3>
+                <ul>
+                    <li>Proponer, evaluar y ejecutar propuestas de eventos y auspicios para la elaboración del Plan de Marketing anual para cada uno de los productos.</li>
+                    <li>Coordinar con las áreas involucradas la implementación de las campañas de comunicación, desde el desarrollo de las piezas gráficas hasta su ejecución; asegurando la difusión de los beneficios de la Escuela de Posgrado y sus programas.</li>
+                    <li>Realizar el seguimiento y análisis de la competencia en todos los productos que compitan o podrían competir con la oferta de la Escuela de Posgrado; así como de la tendencia de alumnos por cada programa.</li>
+                    <li>Mantener los contenidos revisados e información actualizada tanto en la página web como en otros medios de difusión por cada producto.</li>
+                    <li>Segmentar las bases de datos de egresados de pregrado por programas de interés.</li>
+                    <li>Mantener actualizada la base de datos de los egresados de programas de maestría.</li>
+                    <li>Proponer nuevas oportunidades de negocio relacionadas a los servicios que brinda o podría brindar la Escuela de Posgrado.</li>
+                </ul>
+                <div class="linea"><span class="arrow"></span></div>
+                <h3>Beneficios</h3>
+                <ul>
+                    <li>Proponer, evaluar y ejecutar propuestas de eventos y auspicios para la elaboración del Plan de Marketing anual para cada uno de los productos.</li>
+                    <li>Coordinar con las áreas involucradas la implementación de las campañas de comunicación, desde el desarrollo de las piezas gráficas hasta su ejecución; asegurando la difusión de los beneficios de la Escuela de Posgrado y sus programas.</li>
+                    <li>Realizar el seguimiento y análisis de la competencia en todos los productos que compitan o podrían competir con la oferta de la Escuela de Posgrado; así como de la tendencia de alumnos por cada programa.</li>
+                    <li>Mantener los contenidos revisados e información actualizada tanto en la página web como en otros medios de difusión por cada producto.</li>
+                    <li>Segmentar las bases de datos de egresados de pregrado por programas de interés.</li>
+                    <li>Mantener actualizada la base de datos de los egresados de programas de maestría.</li>
+                    <li>Proponer nuevas oportunidades de negocio relacionadas a los servicios que brinda o podría brindar la Escuela de Posgrado.</li>
+                </ul>
+                <div class="linea"><span class="arrow"></span></div>
+                <h3>Requisitos</h3>
+                <ul>
+                    <li>Proponer, evaluar y ejecutar propuestas de eventos y auspicios para la elaboración del Plan de Marketing anual para cada uno de los productos.</li>
+                    <li>Coordinar con las áreas involucradas la implementación de las campañas de comunicación, desde el desarrollo de las piezas gráficas hasta su ejecución; asegurando la difusión de los beneficios de la Escuela de Posgrado y sus programas.</li>
+                    <li>Realizar el seguimiento y análisis de la competencia en todos los productos que compitan o podrían competir con la oferta de la Escuela de Posgrado; así como de la tendencia de alumnos por cada programa.</li>
+                    <li>Mantener los contenidos revisados e información actualizada tanto en la página web como en otros medios de difusión por cada producto.</li>
+                    <li>Segmentar las bases de datos de egresados de pregrado por programas de interés.</li>
+                    <li>Mantener actualizada la base de datos de los egresados de programas de maestría.</li>
+                    <li>Proponer nuevas oportunidades de negocio relacionadas a los servicios que brinda o podría brindar la Escuela de Posgrado.</li>
+                </ul>
+                <div class="linea"><span class="arrow"></span></div>
+                <p class="btn-datos">
+                    <a href="#" class="btn light-blue darken-3 fb"><i><img src="assets/img/facebook_user.svg" class="img-small"></i>Compartir</a>
+                    <a href="#" class="btn light-blue accent-1 in"><i><img src="assets/img/LinkedIn_user.svg" class="img-small"></i>Compartir</a>
+                </p>
+            </div>
+        </article>
+        <aside class="col-md-3">
+            <div class="bg pad0_15" id="tabs">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <ul class="tabs">
+                                <li class="tab title col-md-8">Ofertas relacionadas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="ofertas" class="col-md-12">
+                        <div class="item">
+                            <h3><a>Practicante de Mecánica Industrial</a></h3>
+                            <p>No pierdas esta gran oportunidad de desarrollo
+                                Allus Global BPO Center es la compañía líder</p>
+                        </div>
+                        <div class="item">
+                            <h3><a>Practicante de Mecánica Industrial</a></h3>
+                            <p>No pierdas esta gran oportunidad de desarrollo
+                                Allus Global BPO Center es la compañía líder</p>
+                        </div>
+                        <div class="item">
+                            <h3><a>Practicante de Mecánica Industrial</a></h3>
+                            <p>No pierdas esta gran oportunidad de desarrollo
+                                Allus Global BPO Center es la compañía líder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Bolsa de Trabajo</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Buscar empleos</a></li>
+                                    <li><a href="#">Empresas</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Candidatos</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Ingresa CV</a></li>
+                                    <li><a href="#">Modificar CV</a></li>
+                                    <li><a href="#">Eliminar CV</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Envió de Ofertas</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Ofertas en su buzón</a></li>
+                                    <li><a href="#">Modificar suscripción</a></li>
+                                    <li><a href="#">Eliminar suscripción</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <h3>Empresas</h3>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Registre su empresa</a></li>
+                                    <li><a href="#">Entrar al sistema</a></li>
+                                    <li><a href="#">Panel de control</a></li>
+                                    <li><a href="#">Buscar CV</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="row">
+                            <h3>Suscribete</h3>
+                            <form method="post" class="frm">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-justify">Suscribete a nuestro boletin, para recibir las ultimas ofertas!</p>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <span class="icon-envelope"></span>
+                                            <input type="text" class="form-control" placeholder="Correo electrónico" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12"><button class="waves" type="submit">Suscribirse</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 tipos-pagos">
+                    <h3>Aceptamos</h3>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/paypal.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/visa.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/mastercard.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span><img src="assets/img/american_express.svg" class="img-center"></span>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="text">TODAS LAS TARJETAS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid sub-footer">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left redes">
+                    <a class="tw"><span class="icon-twitter"></span></a>
+                    <a class="fb"><span class="icon-facebook"></span></a>
+                    <a class="in"><span class="icon-instagram"></span></a>
+                    <a class="lk"><span class="icon-linkedin-square"></span></a>
+                </p>
+                <p class="pull-right">
+                    © 2015-2016 TALLENTIS, Todos los Derechos Reservados  |  <a>TERMINOS Y CONDICIONES</a>  |  <a>LIBRO DE RECLAMACIONES</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="postularOferta" class="modal bottom-sheet">
+        <div class="modal-footer">
+            <a href="#!" class="pull-right modal-action modal-close">x</a>
+        </div>
+        <div class="modal-content">
+            <div class="container">
+                <div col-md-12>
+                    <h5 class="text-center">Has postulado correctamente al aviso de ANALISTA DE MARKETING</h5>
+                    <h6 class="text-center">Hemos enviado automáticamente a la empresa tu currículum.</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/materialize/js/materialize.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/tallentus.js"></script>
+    <script src="assets/masterslider/jquery.easing.min.js"></script>
+    <!-- Master Slider -->
+    <script src="assets/masterslider/masterslider.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script>
+
+        Waves.init();
+        Waves.attach('.waves');
+
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+
+        $('.modal-trigger').click(function(){
+            $('#postularOferta').openModal();
+        })
+
+        function messageInfo($tipo){
+            // 1 => Agregar Favoritos
+            if($tipo == 1){
+                var $toastContent = $('<span><i class="material-icons">playlist_add_check</i>Agregado a favoritos!</span>');
+                Materialize.toast($toastContent, 5000);
+                $('.add_favorite').attr('disabled','disabled');
+            }
+        }
+
+    </script>
+</body>
+</html>
