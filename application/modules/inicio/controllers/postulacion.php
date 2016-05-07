@@ -37,7 +37,7 @@ class Postulacion extends MX_Controller
         
         $page_title = 'Tallentus - Empresa';
         $tbl_postu = $this->empresa->_get_postulaciones('row',$id);
-
+        $rnd_prst = $this->empresa->_get_postulaciones('result',null,null,null,6);
         ## Template Admin Dashboard
         $module     = 'inicio';
         $view       = 'postulaciones/index';
@@ -47,6 +47,7 @@ class Postulacion extends MX_Controller
             'web_css'    => $web_css,
             'web_js'     => $web_js,
             'module'     => $module,
+            'rand_post'  => $rnd_prst,
             'tbl_postu'  => $tbl_postu,
             'view_file'  => $view
         );

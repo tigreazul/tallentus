@@ -30,12 +30,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-10 col-md-offset-2 btn-datos">
+            <div class="col-md-2 col-md-offset-10 btn-datos">
                 <a href="<?php echo $BASE_URL ?>editar-perfil" class="btn grey lighten-4">Editar datos</a>
                 <!-- <a href="#" class="btn grey lighten-4 send-msg">Enviar mensaje</a> -->
                 <!-- <a href="#" class="btn grey lighten-4 ent">Entrevista</a> -->
-                <a href="#" class="btn light-blue darken-3 fb"><i><img src="<?php echo $frontend ?>assets/img/facebook_user.svg" class="img-small"></i>Facebook</a>
-                <a href="#" class="btn light-blue accent-1 in"><i><img src="<?php echo $frontend ?>assets/img/LinkedIn_user.svg" class="img-small"></i>Likendin</a>
+                <!-- <a href="#" class="btn light-blue darken-3 fb"><i><img src="<?php echo $frontend ?>assets/img/facebook_user.svg" class="img-small"></i>Facebook</a> -->
+                <!-- <a href="#" class="btn light-blue accent-1 in"><i><img src="<?php echo $frontend ?>assets/img/LinkedIn_user.svg" class="img-small"></i>Likendin</a> -->
                 <!-- <a href="#" class="share">Recomendar</a> -->
             </div>
         </div>
@@ -45,14 +45,7 @@
         <article class="col-md-9">
             <div class="row text-justify info">
                 <h3>Sobre mi</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et porta dolor. Nulla eu diam elementum
-                    ipsum interdum semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                    inceptos himenaeos. Praesent et porttitor odio, vulputate consectetur lectus. Sed id tempor mauris.
-                    Pellentesque cursus arcu et dolor gravida lobortis.</p>
-                <p>Sed tincidunt, neque quis venenatis eleifend, lectus quam scelerisque risus, vel condimentum augue
-                    eros eu libero. Praesent scelerisque dignissim erat vel tincidunt. Pellentesque ullamcorper tempus
-                    leo. Nulla facilisi. Nunc tincidunt ornare lectus, at hendrerit nibh. Cras euismod mauris quis felis
-                    eleifend, sit amet consequat orci convallis. Phasellus pellentesque quis mauris in condimentum.</p>
+                <p><?php echo $datos['usu_descripcion']; ?></p>
                 <div class="linea"><span></span></div>
             </div>
             <div class="row historial">
@@ -97,39 +90,16 @@
                         </div>
                     </div>
                     <div id="ofertas" class="col-md-12">
-                        <div class="item">
-                            <h3><a>Practicante de Mecánica Industrial</a></h3>
-                            <p>No pierdas esta gran oportunidad de desarrollo
-                                Allus Global BPO Center es la compañía líder</p>
-                        </div>
-                        <div class="item">
-                            <h3><a>Practicante de Mecánica Industrial</a></h3>
-                            <p>No pierdas esta gran oportunidad de desarrollo
-                                Allus Global BPO Center es la compañía líder</p>
-                        </div>
-                        <div class="item">
-                            <h3><a>Practicante de Mecánica Industrial</a></h3>
-                            <p>No pierdas esta gran oportunidad de desarrollo
-                                Allus Global BPO Center es la compañía líder</p>
-                        </div>
-                        <div class="item">
-                            <h3><a>Practicante de Industrial</a></h3>
-                            <p>No pierdas esta gran oportunidad de desarrollo
-                                Allus Global BPO Center es la compañía líder</p>
-                        </div>
-                        <div class="item">
-                            <h3><a>Practicante de Industrial</a></h3>
-                            <p>No pierdas esta gran oportunidad de desarrollo
-                                Allus Global BPO Center es la compañía líder</p>
-                        </div>
-                        <div class="item">
-                            <h3><a>Practicante de Industrial</a></h3>
-                            <p>No pierdas esta gran oportunidad de desarrollo
-                                Allus Global BPO Center es la compañía líder</p>
-                        </div>
+                        <?php //var_dump($rand_post); ?>
+                        <?php foreach ($rand_post as $val) : ?>
+                            <div class="item">
+                                <h3><a href="<?php echo $BASE_URL.'empleo/'.$val->postu_seo ?>"><?php echo $val->postu_titulo ?></a></h3>
+                                <p><?php echo $val->emp_razon_social ?></p>
+                            </div>
+                        <?php endforeach ?>
                     </div>
                 </div>
             </div>
         </aside>
-        
+
     </section>

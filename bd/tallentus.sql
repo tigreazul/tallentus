@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-05-06 17:34:02
+Date: 2016-05-07 02:12:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,6 +23,7 @@ CREATE TABLE `tbl_areas` (
   `area_id` int(11) NOT NULL AUTO_INCREMENT,
   `area_nombre` varchar(500) DEFAULT NULL,
   `area_descripcion` text,
+  `area_seo` text,
   `area_estado` int(11) DEFAULT NULL,
   PRIMARY KEY (`area_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
@@ -30,12 +31,12 @@ CREATE TABLE `tbl_areas` (
 -- ----------------------------
 -- Records of tbl_areas
 -- ----------------------------
-INSERT INTO `tbl_areas` VALUES ('1', 'Comercial / Ventas', null, '1');
-INSERT INTO `tbl_areas` VALUES ('2', 'Operaciones', null, '1');
-INSERT INTO `tbl_areas` VALUES ('3', 'Atención al Cliente', null, '1');
-INSERT INTO `tbl_areas` VALUES ('4', 'Administración y finanzas', null, '1');
-INSERT INTO `tbl_areas` VALUES ('5', 'Call Canter / Telemarketing', null, '1');
-INSERT INTO `tbl_areas` VALUES ('6', 'Producción', null, '1');
+INSERT INTO `tbl_areas` VALUES ('1', 'Comercial / Ventas', null, 'comercial-ventas', '1');
+INSERT INTO `tbl_areas` VALUES ('2', 'Operaciones', null, 'operaciones', '1');
+INSERT INTO `tbl_areas` VALUES ('3', 'Atención al Cliente', null, 'atencion-al-cliente', '1');
+INSERT INTO `tbl_areas` VALUES ('4', 'Administración y finanzas', null, 'administracion-y-finanzas', '1');
+INSERT INTO `tbl_areas` VALUES ('5', 'Call Center / Telemarketing', null, 'call-center-telemarketing', '1');
+INSERT INTO `tbl_areas` VALUES ('6', 'Producción', null, 'produccion', '1');
 
 -- ----------------------------
 -- Table structure for `tbl_areasxusuario`
@@ -62,6 +63,8 @@ INSERT INTO `tbl_areasxusuario` VALUES ('2', '3', null, null, '1');
 INSERT INTO `tbl_areasxusuario` VALUES ('2', '4', null, null, '1');
 INSERT INTO `tbl_areasxusuario` VALUES ('3', '6', null, null, '1');
 INSERT INTO `tbl_areasxusuario` VALUES ('4', '4', null, null, '1');
+INSERT INTO `tbl_areasxusuario` VALUES ('4', '5', null, null, '1');
+INSERT INTO `tbl_areasxusuario` VALUES ('5', '5', null, null, '1');
 
 -- ----------------------------
 -- Table structure for `tbl_categoria`
@@ -113,19 +116,28 @@ DROP TABLE IF EXISTS `tbl_distrito`;
 CREATE TABLE `tbl_distrito` (
   `dist_id` int(11) NOT NULL AUTO_INCREMENT,
   `dist_descripcion` varchar(500) DEFAULT NULL,
+  `dist_seo` text,
   `dist_estado` int(11) DEFAULT '1',
   PRIMARY KEY (`dist_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbl_distrito
 -- ----------------------------
-INSERT INTO `tbl_distrito` VALUES ('1', 'LIMA', '1');
-INSERT INTO `tbl_distrito` VALUES ('2', 'SAN ISIDRO', '1');
-INSERT INTO `tbl_distrito` VALUES ('3', 'MIRAFLORES', '1');
-INSERT INTO `tbl_distrito` VALUES ('4', 'SANTIAGO DE SURCO', '1');
-INSERT INTO `tbl_distrito` VALUES ('5', 'LINCE', '1');
-INSERT INTO `tbl_distrito` VALUES ('6', 'SURQUILLO', '1');
+INSERT INTO `tbl_distrito` VALUES ('1', 'LIMA', 'lima', '1');
+INSERT INTO `tbl_distrito` VALUES ('2', 'SAN ISIDRO', 'san-isidro', '1');
+INSERT INTO `tbl_distrito` VALUES ('3', 'MIRAFLORES', 'miraflores', '1');
+INSERT INTO `tbl_distrito` VALUES ('4', 'SANTIAGO DE SURCO', 'santiago-de-surco', '1');
+INSERT INTO `tbl_distrito` VALUES ('5', 'LINCE', 'lince', '1');
+INSERT INTO `tbl_distrito` VALUES ('6', 'SURQUILLO', 'surquillo', '1');
+INSERT INTO `tbl_distrito` VALUES ('7', 'ATE VITARTE', 'ate-vitarte', '1');
+INSERT INTO `tbl_distrito` VALUES ('8', 'SAN BORJA', 'san-borja', '1');
+INSERT INTO `tbl_distrito` VALUES ('9', 'CHORRILLOS', 'chorrillos', '1');
+INSERT INTO `tbl_distrito` VALUES ('10', 'SANTA ANITA', 'santa-anita', '1');
+INSERT INTO `tbl_distrito` VALUES ('11', 'CALLAO', 'callao', '1');
+INSERT INTO `tbl_distrito` VALUES ('12', 'LA VICTORIA', 'la-victoria', '1');
+INSERT INTO `tbl_distrito` VALUES ('13', 'VILLA EL SALVADOR', 'villa-el-salvador', '1');
+INSERT INTO `tbl_distrito` VALUES ('14', 'JESUS MARIA', 'jesus-maria', '1');
 
 -- ----------------------------
 -- Table structure for `tbl_educacion`
@@ -362,6 +374,7 @@ INSERT INTO `tbl_tipo_doc` VALUES ('3', 'Otro');
 DROP TABLE IF EXISTS `tbl_usuario`;
 CREATE TABLE `tbl_usuario` (
   `usu_id` int(11) NOT NULL AUTO_INCREMENT,
+  `usu_descripcion` text,
   `usu_nombre` varchar(500) DEFAULT NULL,
   `usu_apellidos` varchar(500) DEFAULT NULL,
   `usu_correo` varchar(200) DEFAULT NULL,
@@ -390,11 +403,11 @@ CREATE TABLE `tbl_usuario` (
 -- ----------------------------
 -- Records of tbl_usuario
 -- ----------------------------
-INSERT INTO `tbl_usuario` VALUES ('1', 'Juan', 'peres', 'administrador', '7c4a8d09ca3762af61e59520943dc26494f8941b', null, 'M', null, null, null, null, '1', null, null, null, '1', '65659598', '1', null);
-INSERT INTO `tbl_usuario` VALUES ('3', 'juan', 'Tello Trujillox', 'zkated@gmail.com1', '7c4a8d09ca3762af61e59520943dc26494f8941b', null, 'M', '2147483647', '0', '1', 'fgfggffgnf', '1', '1976-05-02 00:00:00', '2016-04-18 18:04:35', null, '1', 'fdgfdgfdgfd', '0', null);
-INSERT INTO `tbl_usuario` VALUES ('4', 'dfs', 'xxx', '12344@123.com', '601f1889667efaebb33b8c12572835da3f027f78', null, 'M', '44444', '55555555', '1', 'ssssssssss', '1', '2001-03-01 00:00:00', '2016-04-12 08:04:03', null, '1', '4444444', '0', null);
-INSERT INTO `tbl_usuario` VALUES ('5', 'Junior', 'sss', 'zkated@gmail.com', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', null, 'M', '6565', '6565', '1', 'dfdgdf', '1', '2016-05-04 22:16:44', '2016-05-06 19:05:26', '2003-05-04 00:00:00', '1', '5656655', '0', '12967266_10154259838071833_8492271592279407791_o.jpg');
-INSERT INTO `tbl_usuario` VALUES ('6', 'Miguel', '', 'miguel@miki.com', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', null, 'M', '3587851', '0', '0', '', '1', '1977-06-04 00:00:00', '2016-05-03 16:05:35', null, '1', '22554488', '0', null);
+INSERT INTO `tbl_usuario` VALUES ('1', null, 'Juan', 'peres', 'administrador', '7c4a8d09ca3762af61e59520943dc26494f8941b', null, 'M', null, null, null, null, '1', null, null, null, '1', '65659598', '1', null);
+INSERT INTO `tbl_usuario` VALUES ('3', null, 'juan', 'Tello Trujillox', 'zkated@gmail.com1', '7c4a8d09ca3762af61e59520943dc26494f8941b', null, 'M', '2147483647', '0', '1', 'fgfggffgnf', '1', '1976-05-02 00:00:00', '2016-04-18 18:04:35', null, '1', 'fdgfdgfdgfd', '0', null);
+INSERT INTO `tbl_usuario` VALUES ('4', null, 'dfs', 'xxx', '12344@123.com', '601f1889667efaebb33b8c12572835da3f027f78', null, 'M', '44444', '55555555', '1', 'ssssssssss', '1', '2001-03-01 00:00:00', '2016-04-12 08:04:03', null, '1', '4444444', '0', null);
+INSERT INTO `tbl_usuario` VALUES ('5', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et porta dolor. Nulla eu diam elementum ipsum interdum semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent et porttitor odio, vulputate consectetur lectus. Sed id tempor mauris. Pellentesque cursus arcu et dolor gravida lobortis.', 'Junior', 'zkated', 'zkated@gmail.com', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', null, 'M', '6565', '6565', '1', 'dfdgdf', '1', '2016-05-04 22:16:44', '2016-05-07 07:05:24', '2003-05-04 00:00:00', '1', '5656655', '0', '12967266_10154259838071833_8492271592279407791_o.jpg');
+INSERT INTO `tbl_usuario` VALUES ('6', null, 'Miguel', '', 'miguel@miki.com', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', null, 'M', '3587851', '0', '0', '', '1', '1977-06-04 00:00:00', '2016-05-03 16:05:35', null, '1', '22554488', '0', null);
 
 -- ----------------------------
 -- Table structure for `tbl_usuarioxcategoria`

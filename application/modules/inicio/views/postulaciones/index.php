@@ -5,18 +5,18 @@
                 <div class="nav-wrapper">
                     <div class="col-md-12">
                         <div class="row">
-                            <a href="#!" class="breadcrumb">Inicio</a>
+                            <!-- <a href="#!" class="breadcrumb">Inicio</a>
                             <a href="#!" class="breadcrumb">Educación</a>
                             <a href="#!" class="breadcrumb">Docencia e investigación</a>
                             <a href="#!" class="breadcrumb">Analista Asistente</a>
-                            <a href="#!" class="breadcrumb">ANALISTA DE MARKETING</a>
+                            <a href="#!" class="breadcrumb">ANALISTA DE MARKETING</a> -->
                         </div>
                     </div>
                 </div>
             </nav>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <?php // var_dump($tbl_postu) ?>
+            <?php //var_dump($tbl_postu) ?>
             <div class="row">
                 <h1><?php echo $tbl_postu['postu_titulo'] ?></h1>
             </div>
@@ -32,7 +32,7 @@
                     <div class="datos">
                         <h2><?php echo $tbl_postu['emp_razon_social'] ?></h2>
                         <p>
-                            <i><img src="<?php echo $frontend ?>assets/img/map-marker.svg" class="img-small"></i>Lima, Perú
+                            <i><img src="<?php echo $frontend ?>assets/img/map-marker.svg" class="img-small"></i><?php echo $tbl_postu['dist_descripcion'] ?>
                         </p>
                     </div>
                 </div>
@@ -67,10 +67,10 @@
             <h3>Educación:</h3><?php echo $tbl_postu['edu_descripcion'] ?>
             <h3>Jornada:</h3><?php echo $tbl_postu['jor_descripcion'] ?>
             <div class="linea"><span class="arrow"></span></div>
-            <!-- <p class="btn-datos">
-                <a href="#" class="btn light-blue darken-3 fb"><i><img src="<?php echo $frontend ?>assets/img/facebook_user.svg" class="img-small"></i>Compartir</a>
-                <a href="#" class="btn light-blue accent-1 in"><i><img src="<?php echo $frontend ?>assets/img/LinkedIn_user.svg" class="img-small"></i>Compartir</a>
-            </p> -->
+            <p class="btn-datos">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $BASE_URL.'empleo/'.$tbl_postu['postu_seo'] ?>" target="_blank" class="btn light-blue darken-3 fb"><i><img src="<?php echo $frontend ?>assets/img/facebook_user.svg" class="img-small"></i>Compartir</a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $BASE_URL ?>#.Vy2TEvKmF_0.linkedin&title=<?php echo $tbl_postu['postu_seo'] ?>&ro=false&summary=&source=" target="_blank" class="btn light-blue accent-1 in"><i><img src="<?php echo $frontend ?>assets/img/LinkedIn_user.svg" class="img-small"></i>Compartir</a>
+            </p>
         </div>
     </article>
     <aside class="col-md-3">
@@ -84,21 +84,13 @@
                     </div>
                 </div>
                 <div id="ofertas" class="col-md-12">
-                    <div class="item">
-                        <h3><a>Practicante de Mecánica Industrial</a></h3>
-                        <p>No pierdas esta gran oportunidad de desarrollo
-                            Allus Global BPO Center es la compañía líder</p>
-                    </div>
-                    <div class="item">
-                        <h3><a>Practicante de Mecánica Industrial</a></h3>
-                        <p>No pierdas esta gran oportunidad de desarrollo
-                            Allus Global BPO Center es la compañía líder</p>
-                    </div>
-                    <div class="item">
-                        <h3><a>Practicante de Mecánica Industrial</a></h3>
-                        <p>No pierdas esta gran oportunidad de desarrollo
-                            Allus Global BPO Center es la compañía líder</p>
-                    </div>
+                    <?php foreach ($rand_post as $val) : ?>
+                        <div class="item">
+                            <h3><a href="<?php echo $BASE_URL.'empleo/'.$val->postu_seo ?>"><?php echo $val->postu_titulo ?></a></h3>
+                            <p><?php echo $val->emp_razon_social ?></p>
+                        </div>
+                    <?php endforeach ?>
+                    
                 </div>
             </div>
         </div>

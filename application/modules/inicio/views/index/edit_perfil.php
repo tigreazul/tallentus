@@ -50,6 +50,13 @@
 
                 <div class="row bg">
 
+                    <div class="col-md-12">
+                        <div class="input-field">
+                            <input placeholder="" id="sobremi" name="sobremi" type="text" class="validate texto" value="<?php echo $arrEmail['usu_descripcion']?>">
+                            <label for="first_name">Sobre mí</label>
+                        </div>
+                    </div>
+
                     <div class="col-md-2">
                         <div class="input-field">
                             <input placeholder="" value="<?php echo $arrEmail['usu_nombre'] ?>" name="nombre" id="nombres" type="text" class="validate texto">

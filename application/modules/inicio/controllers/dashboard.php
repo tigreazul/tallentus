@@ -180,6 +180,7 @@ class Dashboard extends MX_Controller
             $id                 = base64_decode($this->input->post('id'));
             $nombre             = $this->input->post('nombre');
             $apellido           = $this->input->post('apellido');
+            $sobremi            = $this->input->post('sobremi');
             $email              = $this->input->post('email');
             $dia                = $this->input->post('dia');
             $mes                = $this->input->post('mes');
@@ -194,6 +195,7 @@ class Dashboard extends MX_Controller
             $arrDatos = array(
                 'usu_nombre'            => $nombre,
                 'usu_apellidos'         => $apellido,
+                'usu_descripcion'       => $sobremi,
                 'usu_fecha_nacimiento'  => $anio.'-'.$mes.'-'.$dia,
                 'usu_nro_documento'     => $nrodocumento,
                 'usu_sexo'              => $sexo,
@@ -357,7 +359,9 @@ class Dashboard extends MX_Controller
         }
 
         // Obteniendo areas
-        $lsArea = $this->inicio->_get_areas_usuario($tEmail['usu_id']);
+        $lsArea  = $this->inicio->_get_areas_usuario($tEmail['usu_id']);
+        // $postula = $this->inicio->_get_areas_usuario($tEmail['usu_id']);
+        $rnd_prst = $this->empresa->_get_postulaciones('result',null,null,null,6);
         
         #Vistas
         $data = array(
@@ -366,6 +370,7 @@ class Dashboard extends MX_Controller
             'datos'      => $tEmail,
             'areas'      => $lsArea,
             'web_js'     => $web_js,
+            'rand_post'  => $rnd_prst,
             'postu'      => $postulaciones,
             'module'     => $module,
             'view_file'  => $view
@@ -420,6 +425,7 @@ class Dashboard extends MX_Controller
             $mes                = $this->input->post('mes');
             $anio               = $this->input->post('anio');
             $nrodocumento       = $this->input->post('nrodocumento');
+            $sobremi            = $this->input->post('sobremi');
             $sexo               = $this->input->post('sexo');
             $fijo               = $this->input->post('fijo');
             $celular            = $this->input->post('celular');
@@ -428,10 +434,8 @@ class Dashboard extends MX_Controller
             
             $arrDatos = array(
                 'usu_nombre'            => $nombre,
+                'usu_descripcion'       => $sobremi,
                 'usu_apellidos'         => $apellido,
-                // 'usu_correo'         => $email,
-                // 'mes'                => $mes,
-                // 'anio'               => $anio,
                 'usu_fecha_nacimiento'  => $anio.'-'.$mes.'-'.$dia,
                 'usu_nro_documento'     => $nrodocumento,
                 'usu_sexo'              => $sexo,

@@ -394,6 +394,7 @@ class Empresa extends MX_Controller
                 redirect('','refresh');
             }
             $postulaciones = $this->empresa->_get_postulaciones('result',null,$empresa['emp_id']);
+            $rnd_prst = $this->empresa->_get_postulaciones('result',null,null,null,6);
         }
 
         #Vistas
@@ -402,6 +403,7 @@ class Empresa extends MX_Controller
             'web_css'    => $web_css,
             'web_js'     => $web_js,
             'empresa'    => $empresa,
+            'rand_post'  => $rnd_prst,
             'postu'      => $postulaciones,
             'module'     => $module,
             'view_file'  => $view

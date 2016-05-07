@@ -71,7 +71,7 @@ class Empresa_model extends CI_Model {
 
 
 
-    public function _get_postulaciones($resultado,$id = null,$otro = null,$arrDato = null){
+    public function _get_postulaciones($resultado,$id = null,$otro = null,$arrDato = null,$limit = null){
         if(!empty($id) and is_numeric($id)){
             $this->db->where('p.postu_id',$id);
         }elseif(!empty($id) and is_string($id)){
@@ -90,6 +90,10 @@ class Empresa_model extends CI_Model {
         $this->db->join('tbl_empresa e','e.emp_id = p.postu_empresa_id');
         $this->db->join('tbl_jornada j','j.jor_id = p.postu_jornada_id');
         $this->db->join('tbl_areas a','a.area_id = p.postu_area_id');
+        if(!empty($limit)){
+            $this->db->limit($limit);
+            $this->db->order_by('p.postu_estado', 'RANDOM');
+        }
         $this->db->from('tbl_postulaciones p');
         $query = $this->db->get();
         if($resultado == 'row'){

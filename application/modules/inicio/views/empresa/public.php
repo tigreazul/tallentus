@@ -81,21 +81,12 @@
                     </div>
                 </div>
                 <div id="ofertas" class="col-md-12">
-                    <div class="item">
-                        <h3><a>Practicante de Mecánica Industrial</a></h3>
-                        <p>No pierdas esta gran oportunidad de desarrollo
-                            Allus Global BPO Center es la compañía líder</p>
-                    </div>
-                    <div class="item">
-                        <h3><a>Practicante de Mecánica Industrial</a></h3>
-                        <p>No pierdas esta gran oportunidad de desarrollo
-                            Allus Global BPO Center es la compañía líder</p>
-                    </div>
-                    <div class="item">
-                        <h3><a>Practicante de Mecánica Industrial</a></h3>
-                        <p>No pierdas esta gran oportunidad de desarrollo
-                            Allus Global BPO Center es la compañía líder</p>
-                    </div>
+                    <?php foreach ($rand_post as $val) : ?>
+                        <div class="item">
+                            <h3><a href="<?php echo $BASE_URL.'empleo/'.$val->postu_seo ?>"><?php echo $val->postu_titulo ?></a></h3>
+                            <p><?php echo $val->emp_razon_social ?></p>
+                        </div>
+                    <?php endforeach ?> 
                 </div>
             </div>
         </div>
