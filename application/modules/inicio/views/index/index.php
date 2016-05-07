@@ -105,7 +105,7 @@
                         <ul class="list-unstyled lst-ubicacion row">
                             <?php foreach ($distrito as $dist) : ?>
                                 <li class="col-md-3">
-                                    <a href="#"><?php echo $dist['describe_dist'];  ?></a>
+                                    <a href="<?php echo $BASE_URL.'distrito/'.slugify($dist['describe_dist']);  ?>"><?php echo $dist['describe_dist'];  ?></a>
                                     <span class="label label-default"><?php echo $dist['postu_dist'];  ?></span>
                                 </li>
                             <?php endforeach ?>
@@ -122,6 +122,8 @@
                             <div class="master-slider" id="carousel">
                                 <?php foreach ($empresa as $emp) : ?>
                                     <div class="ms-slide">
+                                        <!-- <a href="<?php echo $BASE_URL ?>empresas/<?php echo $emp->emp_seo ?>" title="">
+                                        </a> -->
                                         <img src="<?php echo $frontend ?>assets/masterslider/blank.gif" data-src="<?php echo $frontend ?>upload/logo.png" alt="<?php echo $emp->emp_razon_social ?>"/>
                                         <div class="ms-info">
                                             <h3><?php echo $emp->emp_razon_social ?></h3>
@@ -169,9 +171,11 @@
                     <div class="col-md-12">
                         <?php foreach ($areas as $area) : ?>
                             <div class="col-md-1 box-md-5 text-center" data-type="categoria">
-                                <img src="<?php echo $frontend ?>upload/item-categoria.png" class="img-responsive img-center img-circle">
-                                <h3><?php echo $area['describe'];  ?></h3>
-                                <span><?php echo $area['postu'];  ?> puestos</span>
+                                <a href="<?php echo $BASE_URL.'area/'.$area['seo'];  ?>" title="">
+                                    <img src="<?php echo $frontend ?>upload/item-categoria.png" class="img-responsive img-center img-circle">
+                                    <h3><?php echo $area['describe'];  ?></h3>
+                                    <span><?php echo $area['postu'];  ?> puestos</span>
+                                </a>
                             </div>
                         <?php endforeach ?>
                     </div>

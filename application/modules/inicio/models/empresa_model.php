@@ -71,13 +71,15 @@ class Empresa_model extends CI_Model {
 
 
 
-    public function _get_postulaciones($resultado,$id = null,$otro = null){
+    public function _get_postulaciones($resultado,$id = null,$otro = null,$arrDato = null){
         if(!empty($id) and is_numeric($id)){
             $this->db->where('p.postu_id',$id);
         }elseif(!empty($id) and is_string($id)){
             $this->db->where('p.postu_seo',$id);
         }elseif(!empty($otro)){
             $this->db->where('p.postu_empresa_id',$otro);
+        }elseif(!empty($arrDato)){
+            $this->db->where($arrDato);
         }
 
         $this->db->where('p.postu_estado',1);
@@ -87,6 +89,7 @@ class Empresa_model extends CI_Model {
         $this->db->join('tbl_educacion edu','edu.edu_id = p.postu_educacion_id');
         $this->db->join('tbl_empresa e','e.emp_id = p.postu_empresa_id');
         $this->db->join('tbl_jornada j','j.jor_id = p.postu_jornada_id');
+        $this->db->join('tbl_areas a','a.area_id = p.postu_area_id');
         $this->db->from('tbl_postulaciones p');
         $query = $this->db->get();
         if($resultado == 'row'){

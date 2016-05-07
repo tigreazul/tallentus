@@ -21,6 +21,11 @@ $route['mi-cuenta'] = "inicio/dashboard/perfil";
 $route['editar-perfil'] = "inicio/dashboard/editar_perfil";
 $route['editar-areas'] = "inicio/dashboard/editar_areas";
 $route['update-areas'] = "inicio/dashboard/update_areas";
+$route['distrito/(:any)'] = "inicio/dashboard/listado_distrito/$1";
+$route['area/(:any)'] = "inicio/dashboard/listado_area_servicio/$1";
+
+
+
 
 $route['empresa/registro-empresa'] = "inicio/empresa/crear_empresa";
 $route['empresa'] = "inicio/empresa";

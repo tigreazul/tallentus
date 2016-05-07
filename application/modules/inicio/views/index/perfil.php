@@ -1,7 +1,14 @@
 <div class="container-fluid" id="info-micuenta">
         <div class="container info-head">
             <div class="col-md-2">
-                <img src="<?php echo $frontend ?>assets/img/user_new.svg" class="img-responsive img-center img-circle" width="100%">
+                <?php 
+                    $imagen = $this->session->userdata('imagen');
+                    if($imagen != ''):
+                        echo "<img src='".$BASE_URL."uploads/usuario/".$imagen."' class='img-responsive img-center img-circle' style='width:100%;height: 18%;'>";
+                    else: 
+                        echo '<img src="'.$frontend.'assets/img/user_new.svg" class="img-responsive img-center img-circle" style="width:100%">';
+                    endif 
+                ?>
             </div>
             <div class="col-md-10">
                 <div class="row">
@@ -78,14 +85,14 @@
                 </div>
             </div>
         </article>
+
         <aside class="col-md-3">
             <div class="bg pad0_15" id="tabs">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
                             <ul class="tabs">
-                                <li class="tab col-md-8"><a class="active" href="#ofertas">(0) Ofertas</a></li>
-                                <li class="tab col-md-4"><a href="#alertas">(0) Alertas</a></li>
+                                <li class="tab col-md-8"><a class="active" href="#ofertas">Postulaciones Relacionadas</a></li>
                             </ul>
                         </div>
                     </div>
@@ -105,8 +112,6 @@
                             <p>No pierdas esta gran oportunidad de desarrollo
                                 Allus Global BPO Center es la compañía líder</p>
                         </div>
-                    </div>
-                    <div id="alertas" class="col-md-12">
                         <div class="item">
                             <h3><a>Practicante de Industrial</a></h3>
                             <p>No pierdas esta gran oportunidad de desarrollo
@@ -126,4 +131,5 @@
                 </div>
             </div>
         </aside>
+        
     </section>

@@ -39,6 +39,7 @@ class Dashboard extends MX_Controller
             $arr[] = array(
                 'id' => $ar->area_id,
                 'describe' => $ar->area_nombre,
+                'seo' => $ar->area_seo,
                 'postu' => count($this->empresa->_get_lista_multiple('tbl_postulaciones','result',array('postu_area_id' => $ar->area_id,'postu_estado' => 1)))
                 );
         }
@@ -373,7 +374,6 @@ class Dashboard extends MX_Controller
         echo Modules::run('template/front',$data);
     }
 
-
     public function editar_perfil()
     {
         $web_css  = array(
@@ -526,7 +526,6 @@ class Dashboard extends MX_Controller
         );
         echo Modules::run('template/head_front',$data);
         echo Modules::run('template/front',$data);
-
     }
 
 
@@ -554,6 +553,102 @@ class Dashboard extends MX_Controller
                 redirect('editar-areas','refresh');
             }
         }
+    }
+
+
+    public function listado_distrito($distrito_seo = null){
+        $web_css  = array(
+            array('href'=>'assets/css/bootstrap.css'),
+            array('href'=>'assets/css/theme.css'),
+            array('href'=>'assets/css/waves.css'),
+            array('href'=>'assets/masterslider/style/masterslider.css'),
+            array('href'=>'assets/masterslider/skins/default/style.css'),
+        );
+        $web_js   = array(  
+            array('src'=>'script/materialize/js/materialize.js')
+        );
+
+
+        #Logica
+        // Distrito
+        $distrito = $this->empresa->_get_lista('tbl_distrito');
+        foreach ($distrito as $dist) {
+            $dst[] = array(
+                'id_dist' => $dist->dist_id,
+                'describe_dist' => $dist->dist_descripcion,
+                'postu_dist' => count($this->empresa->_get_lista_multiple('tbl_postulaciones','result',array('postu_distrito_id' => $dist->dist_id,'postu_estado' => 1)))
+            );
+        }   
+
+        $lst_distrito = $this->empresa->_get_postulaciones('result',null,null,array('d.dist_seo' => $distrito_seo));
+        ## Inicio de Sesión
+        $page_title = 'Tallentus - Distrito';
+        ## Template Admin Dashboard
+        $module     = 'inicio';
+        $view       = 'index/distrito';
+
+        // var_dump($aEmpresa);
+        $data = array(
+            'titulo'     => $page_title,
+            'web_css'    => $web_css,
+            'web_js'     => $web_js,
+            'distrito'   => $dst,
+            // 'empresa'    => $aEmpresa,
+            'lDistrito'  => $lst_distrito,
+            'titulo_dst' => $distrito_seo,   
+            'module'     => $module,
+            'view_file'  => $view
+        );
+        echo Modules::run('template/head_front',$data);
+        echo Modules::run('template/front',$data);   
+    }
+
+    public function listado_area_servicio($areas_seo = null){
+        $web_css  = array(
+            array('href'=>'assets/css/bootstrap.css'),
+            array('href'=>'assets/css/theme.css'),
+            array('href'=>'assets/css/waves.css'),
+            array('href'=>'assets/masterslider/style/masterslider.css'),
+            array('href'=>'assets/masterslider/skins/default/style.css'),
+        );
+        $web_js   = array(  
+            array('src'=>'script/materialize/js/materialize.js')
+        );
+
+
+        #Logica
+        // Distrito
+        $distrito = $this->empresa->_get_lista('tbl_distrito');
+        foreach ($distrito as $dist) {
+            $dst[] = array(
+                'id_dist' => $dist->dist_id,
+                'describe_dist' => $dist->dist_descripcion,
+                'postu_dist' => count($this->empresa->_get_lista_multiple('tbl_postulaciones','result',array('postu_distrito_id' => $dist->dist_id,'postu_estado' => 1)))
+            );
+        }   
+
+
+        $lst_distrito = $this->empresa->_get_postulaciones('result',null,null,array('a.area_seo' => $areas_seo));
+        ## Inicio de Sesión
+        $page_title = 'Tallentus - Areas';
+        ## Template Admin Dashboard
+        $module     = 'inicio';
+        $view       = 'index/lista_areas';
+
+        // var_dump($aEmpresa);
+        $data = array(
+            'titulo'     => $page_title,
+            'web_css'    => $web_css,
+            'web_js'     => $web_js,
+            'distrito'   => $dst,
+            // 'empresa'    => $aEmpresa,
+            'lDistrito'  => $lst_distrito,
+            'titulo_dst' => $areas_seo,   
+            'module'     => $module,
+            'view_file'  => $view
+        );
+        echo Modules::run('template/head_front',$data);
+        echo Modules::run('template/front',$data);   
     }
 
 }
