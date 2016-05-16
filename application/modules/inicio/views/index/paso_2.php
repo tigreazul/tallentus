@@ -1,4 +1,4 @@
-Main jumbotron for a primary marketing message or call to action -->
+<!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="banner">
     <!-- masterslider -->
     <div class="master-slider ms-skin-default" id="masterslider">

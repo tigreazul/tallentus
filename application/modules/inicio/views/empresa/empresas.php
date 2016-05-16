@@ -1,4 +1,4 @@
-Main jumbotron for a primary marketing message or call to action -->
+<!--Main jumbotron for a primary marketing message or call to action -->
 <div class="banner">
     <!-- masterslider -->
     <div class="master-slider ms-skin-default" id="masterslider">
@@ -120,7 +120,7 @@ Main jumbotron for a primary marketing message or call to action -->
                     <?php foreach ($empresa as $emp) : ?>
                         <div class="col-md-2" data-type="empresa">
                             <a href="<?php echo $BASE_URL ?>empresas/<?php echo $emp['razon_seo'] ?>" title="">
-                                <img src="<?php echo $frontend ?>upload/logo1.png" width="120" class="img-center img-responsive img-circle">
+                                <img src="<?php echo $BASE_URL ?>uploads/empresa/<?php echo $emp['imagen'] ?>" width="120" class="img-center img-responsive img-circle">
                             </a>
                             <h3><?php echo $emp['razon_social'] ?></h3>
                             <span><?php echo $emp['emp_postu'] ?> puestos</span>

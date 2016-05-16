@@ -21,7 +21,11 @@
                 <?php if(!empty($this->session->userdata('email_emp'))): ?>
                     <div id="micuenta" class="navbar-collapse collapse pull-right">
                         <div class="pull-right">
-                            <img src="<?php echo $frontend ?>assets/img/user_new.svg" class="img-circle img-responsive">
+                            <!-- <img src="<?php echo $frontend ?>assets/img/user_new.svg" class="img-circle img-responsive"> -->
+                            <?php 
+                                $imagen = $this->session->userdata('imagen');
+                                echo "<img src='".$BASE_URL."uploads/empresa/thumbs/".$imagen."' class='img-circle img-responsive'>";
+                            ?>
                         </div>
                         <div class="pull-right">
                             <p class="text-right">Bienvenido - <a href="<?php echo base_url() ?>salir" style="line-height: 0;">Salir</a></p>
@@ -31,7 +35,7 @@
                 <?php else: ?>
                     <?php if(empty($this->session->userdata('is_logued_in')) || $this->session->userdata('is_logued_in') == false ): ?>
                         <div id="navbar" class="navbar-collapse collapse pull-right">
-                            <a href="<?php echo base_url() ?>empresa" role="button">Registrar</a>
+                            <a href="<?php echo base_url() ?>empresa/registro-empresa" role="button">Registrar</a>
                             <a href="#login" role="button" data-toggle="modal" data-target="#modalRegisterEmpresa" class="btn-login-empresa pull-right waves">Iniciar Sesion</a>
                         </div><!--/.navbar-collapse -->
                     <?php endif ?>
@@ -42,11 +46,7 @@
                         <div class="pull-right">
                             <?php 
                                 $imagen = $this->session->userdata('imagen');
-                                if($imagen != ''):
-                                    echo "<img src='".$BASE_URL."uploads/usuario/thumbs/".$imagen."' class='img-responsive img-center'>";
-                                else: 
-                                    echo '<img src="'.$frontend.'assets/img/user_new.svg" class="img-circle img-responsive">';
-                                endif 
+                                echo "<img src='".$BASE_URL."uploads/usuario/thumbs/".$imagen."' class='img-circle img-responsive' style='width: 40px;height: 35px;'>";
                             ?>
                         </div>
                         <div class="pull-right">

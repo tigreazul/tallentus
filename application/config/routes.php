@@ -30,15 +30,18 @@ $route['user/(:any)'] = "inicio/dashboard/user/$1";
 
 $route['empresa/registro-empresa'] = "inicio/empresa/crear_empresa";
 $route['empresa'] = "inicio/empresa";
+$route['upload-empresa'] = "inicio/empresa/upload_imagen";
+$route['empresa/editar-perfil'] = "inicio/empresa/editar_perfil";
 
 
 $route['registrar'] = "inicio/empresa/registrar";
 $route['login-empresa'] = "inicio/empresa/registrar";
 $route['entrar-empresa'] = "inicio/empresa/entrar";
 $route['empresa/mi-empresa'] = "inicio/empresa/perfil";
-$route['crear-aviso'] = "inicio/empresa/aviso";
+$route['empresa/crear-aviso'] = "inicio/empresa/aviso";
 $route['crear-publicacion-aviso'] = "inicio/empresa/crear_aviso";
 $route['listado-empresas'] = "inicio/empresa/listado_empresa";
+$route['empresa/mis-vacantes'] = "inicio/empresa/vacantes";
 $route['empresas/(:any)'] = "inicio/empresa/empresa_public/$1";
 
 

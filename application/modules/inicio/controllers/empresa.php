@@ -102,6 +102,7 @@ class Empresa extends MX_Controller
                 'emp_telefono'          => $fijo,
                 'emp_descripcion'       => $descripcion,
                 'emp_estado'            => 1,
+                'emp_logo'              => 'user_new.svg',
                 'emp_clave'             => sha1($password),
                 'emp_fecha_creacion'    => date('Y-m-d H:m:s'),
                 'id_rol'                => 0,
@@ -110,10 +111,22 @@ class Empresa extends MX_Controller
             
             $id = $this->inicio->_insertar('tbl_empresa',$arrDatos);
             if($id){
-                redirect('','refresh');
+                ## Mensaje de activacion para email
+                $dMsg = array(
+                    'nombre' => $razon,
+                    'correo' => $email
+                    );
+                $html_msg = $this->mensaje->html_mensaje($dMsg);
+                $subject    = "Bienvenido(a) a Tallentus";
+                $correo = new PHPMailer();
+                $correo->SetFrom('no-replay@tallentus.com');
+                $correo->AddAddress($email, $razon);
+                $correo->Subject = $subject;
+                $correo->MsgHTML($html_msg);
+                redirect('empresa','refresh');
             }
         }else{
-            redirect('','refresh');
+            redirect('empresa','refresh');
         }
     }
 
@@ -141,7 +154,8 @@ class Empresa extends MX_Controller
                     'is_logued_in'  =>  TRUE,
                     'id_usuarioemp' =>  $check_user->emp_id,
                     'username_emp'  =>  $check_user->emp_nombre,
-                    'email_emp'     =>  $check_user->emp_email
+                    'email_emp'     =>  $check_user->emp_email,
+                    'imagen'        =>  $check_user->emp_logo
                 );
                 
                 $this->session->set_userdata($data);
@@ -178,7 +192,6 @@ class Empresa extends MX_Controller
         ## Template Admin Dashboard
         $module     = 'inicio';
         $view       = 'empresa/perfil';
-
 
         #Logica
         $vEmail = $this->session->userdata('email_emp');
@@ -254,6 +267,7 @@ class Empresa extends MX_Controller
                 'postu_area_id'             => $area,
                 'postu_empresa_id'          => $empresa,
                 'postu_fecha_creacion'      => date('Y-m-d H:m:s'),
+                'postu_caduca'              => $this->recursos->suma_meses(date('Y-m-j'),1),
                 'postu_estado'              => 1
             );
 
@@ -281,11 +295,17 @@ class Empresa extends MX_Controller
         );
 
 
-        $distrito   = $this->inicio->_lst_cbo('dist_id','dist_descripcion','tbl_distrito','-- DISTRITOS --');
-        $jornada    = $this->inicio->_lst_cbo('jor_id','jor_descripcion','tbl_jornada','-- JORNADA --');
-        $educacion  = $this->inicio->_lst_cbo('edu_id','edu_descripcion','tbl_educacion','-- EDUCACIÓN --');
-        $contrato   = $this->inicio->_lst_cbo('contra_id','contra_descripcion','tbl_contrato','-- CONTRATO --');
-        $area       = $this->inicio->_lst_cbo('area_id','area_nombre','tbl_areas','-- AREA --');
+        $vEmail = $this->session->userdata('email_emp');
+        if($vEmail == null or empty($vEmail)){
+            redirect('','refresh');
+        }else{
+            $distrito   = $this->inicio->_lst_cbo('dist_id','dist_descripcion','tbl_distrito','-- DISTRITOS --');
+            $jornada    = $this->inicio->_lst_cbo('jor_id','jor_descripcion','tbl_jornada','-- JORNADA --');
+            $educacion  = $this->inicio->_lst_cbo('edu_id','edu_descripcion','tbl_educacion','-- EDUCACIÓN --');
+            $contrato   = $this->inicio->_lst_cbo('contra_id','contra_descripcion','tbl_contrato','-- CONTRATO --');
+            $area       = $this->inicio->_lst_cbo('area_id','area_nombre','tbl_areas','-- AREA --');
+        }
+
         ## Inicio de Sesión
         $page_title = 'Tallentus - Empresa';
         ## Template Admin Dashboard
@@ -336,6 +356,7 @@ class Empresa extends MX_Controller
         foreach ($empresa as $emp) {
             $aEmpresa[] = array(
                 'id_emp' => $emp->emp_id,
+                'imagen' => $emp->emp_logo,
                 'razon_social' => $emp->emp_razon_social,
                 'razon_seo' => $emp->emp_seo,
                 'emp_postu' => count($this->empresa->_get_lista_multiple('tbl_postulaciones','result',array('postu_empresa_id' => $emp->emp_id,'postu_estado' => 1)))
@@ -459,6 +480,161 @@ class Empresa extends MX_Controller
         echo Modules::run('template/head_front',$data);
         echo Modules::run('template/front',$data);
     }
+
+    public function editar_perfil()
+    {
+        $web_css  = array(
+            array('href'=>'assets/css/bootstrap.css'),
+            array('href'=>'script/materialize/css/materialize.css'),
+            array('href'=>'assets/css/theme.css'),
+            array('href'=>'assets/css/waves.css'),
+            array('href'=>'assets/masterslider/style/masterslider.css'),
+            array('href'=>'assets/masterslider/skins/default/style.css'),
+        );
+        $web_js   = array(  
+            array('src'=>'script/materialize/js/materialize.js'),
+            array('src'=>'assets/js/jquery.form.js')
+        );  
+        ## Inicio de Sesión
+        $page_title = 'Tallentus - Editar Perfil Empresa';
+        ## Template Admin Dashboard
+        $module     = 'inicio';
+        $view       = 'empresa/edit_empresa';
+
+        #Logica
+        
+        #### Obteniendo datos para mostrar
+        $vEmail = $this->session->userdata('email_emp');
+        if($vEmail == null or empty($vEmail)){
+            redirect('empresa','refresh');
+        }else{
+            $arrEmail = $this->empresa->_obtener_email($vEmail);
+            if(count($arrEmail)>0){
+                $tEmail = $arrEmail;
+            }else{
+                redirect('empresa','refresh');
+            }
+        }
+
+
+        #### Metodos Post
+        if($this->input->post('razon') != ''){
+            $id                 = base64_decode($this->input->post('id'));
+            $nombre         = $this->input->post('nombre');
+            $razon          = $this->input->post('razon');
+            $email          = $this->input->post('email');
+            $ruc            = $this->input->post('ruc');
+            $direccion      = $this->input->post('direccion');
+            $fijo           = $this->input->post('fijo');
+            $descripcion    = $this->input->post('descripcion');
+            
+            $arrDatos = array(
+                'emp_nombre'            => $nombre,
+                'emp_razon_social'      => $razon,
+                'emp_email'             => $email,
+                'emp_ruc'               => $ruc,
+                'emp_direccion'         => $direccion,
+                'emp_telefono'          => $fijo,
+                'emp_descripcion'       => $descripcion,
+                'emp_estado'            => 1,
+                'emp_fecha_modificacion'=> date('Y-m-d H:m:s'),
+                'id_rol'                => 0,
+                'emp_seo'               => slugify($razon)
+            );
+            
+            $id = $this->empresa->_update('tbl_empresa',$arrDatos,$id);
+            redirect('empresa/mi-empresa','refresh');
+        }
+        
+        #Vistas
+        $data = array(
+            'titulo'     => $page_title,
+            'module'     => $module,
+            'web_css'    => $web_css,
+            'web_js'     => $web_js,
+            'arrEmail'   => $tEmail,
+            'view_file'  => $view
+        );
+        echo Modules::run('template/head_front',$data);
+        echo Modules::run('template/front',$data);
+    }
+
+    public function upload_imagen(){
+        $id_usuario = $this->session->userdata('id_usuarioemp');
+        if($id_usuario == null or empty($id_usuario)){
+            redirect('','refresh');
+        }else{
+            $imagen = $this->recursos->upload_img_products('photoimg','uploads/empresa/',true);
+            if(!is_array($imagen)){
+                $arrDatos = array(
+                    'emp_logo' => $imagen
+                );
+                $id = $this->empresa->_update('tbl_empresa',$arrDatos,$id_usuario);
+                echo "<img src='".base_url()."uploads/empresa/".$imagen."'  class='img-responsive img-center'>";
+            }
+        }
+    }
+
+    public function vacantes(){
+        $web_css  = array(
+            array('href'=>'assets/css/bootstrap.css'),
+            array('href'=>'assets/materialize/css/materialize.css'),
+            array('href'=>'https://fonts.googleapis.com/icon?family=Material+Icons'),
+            array('href'=>'assets/css/theme.css'),
+            array('href'=>'assets/css/waves.css'),
+            array('href'=>'assets/masterslider/style/masterslider.css'),
+            array('href'=>'assets/masterslider/skins/default/style.css'),
+        );
+        $web_js   = array(  
+            
+        );    
+        ## Inicio de Sesión
+        $page_title = 'Tallentus - Vacantes';
+        ## Template Admin Dashboard
+        $module     = 'inicio';
+        $view       = 'empresa/vacantes';
+
+
+        #Logica
+        $vEmail = $this->session->userdata('email_emp');
+        $vId = $this->session->userdata('id_usuarioemp');
+        if($vEmail == null or empty($vEmail)){
+            redirect('','refresh');
+        }else{
+            $postulaciones = $this->empresa->_get_postulaciones('result',null,$vId);
+            // $postulaciones = $this->empresa->_get_(null,2);
+            foreach ($postulaciones as $postula) {
+                $arr[] = array(
+                    'idpostu'   => $postula->postu_id,
+                    'titulo'    => $postula->postu_titulo,
+                    'caduca'    => $postula->postu_caduca,
+                    'total'     => count($this->empresa->_get_(null,$postula->postu_id))
+                    );
+            }
+            // echo '<pre>';print_r($arr);echo '</pre>';
+            // die();
+            $arrEmail = $this->empresa->_obtener_email($vEmail);
+            if(count($arrEmail)>0){
+                $tEmail = $arrEmail;
+            }else{
+                redirect('','refresh');
+            }
+        }
+
+        #Vistas
+        $data = array(
+            'titulo'     => $page_title,
+            'web_css'    => $web_css,
+            'web_js'     => $web_js,
+            'datos'      => $tEmail,
+            'postu'      => $arr,
+            'module'     => $module,
+            'view_file'  => $view
+        );
+        echo Modules::run('template/head_front',$data);
+        echo Modules::run('template/front',$data);
+    }
+
 }
 
 /*

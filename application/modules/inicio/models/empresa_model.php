@@ -22,6 +22,12 @@ class Empresa_model extends CI_Model {
             return false;
         }
     }
+
+
+    public function _update($tabla,$arrDatos,$id){
+        $this->db->where('emp_id', $id);
+        return $this->db->update($tabla, $arrDatos);
+    }
     
 
     public function _obtener_email($email){
@@ -105,9 +111,12 @@ class Empresa_model extends CI_Model {
     }
 
 
-    public function _get_($id = null){
+    public function _get_($id = null,$idPostu = null){
         if(!empty($id)){
             $this->db->where('up.usu_id',$id);
+        }
+        if(!empty($idPostu)){
+            $this->db->where('p.postu_id',$idPostu);
         }
         $this->db->select('*');
         $this->db->join('tbl_contrato c','c.contra_id = p.postu_tipo_contrato_id');

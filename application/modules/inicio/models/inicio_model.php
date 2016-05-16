@@ -113,5 +113,32 @@ class Inicio_model extends CI_Model {
 
     
 
+    public function search_user($email)
+    {
+        $this->db->select('user_id id');    
+        $this->db->from('tbl_usuario');
+        $this->db->where('usu_correo',$email);
+        $this->db->where('usu_estado',1);
+        $this->db->where('id_rol',0);
+        $query = $this->db->get();
+        if($query->num_rows() == 1)
+        {
+            return $query->row();
+        }else{
+            return false;
+        }
+    }
+
+
+    public function valid_token($id_user,$token)
+    {
+        $this->db->select('token_register');
+        $this->db->from('tbl_usuario');
+        $this->db->where('user_id',$id_user);  
+        $this->db->where('token_register',$token);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 
 }

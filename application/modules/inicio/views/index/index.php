@@ -124,7 +124,7 @@
                                     <div class="ms-slide">
                                         <!-- <a href="<?php echo $BASE_URL ?>empresas/<?php echo $emp->emp_seo ?>" title="">
                                         </a> -->
-                                        <img src="<?php echo $frontend ?>assets/masterslider/blank.gif" data-src="<?php echo $frontend ?>upload/logo.png" alt="<?php echo $emp->emp_razon_social ?>"/>
+                                        <img src="<?php echo $frontend ?>assets/masterslider/blank.gif" data-src="<?php echo $BASE_URL ?>uploads/empresa/<?php echo $emp->emp_logo ?>" alt="<?php echo $emp->emp_razon_social ?>"/>
                                         <div class="ms-info">
                                             <h3><?php echo $emp->emp_razon_social ?></h3>
                                         </div>

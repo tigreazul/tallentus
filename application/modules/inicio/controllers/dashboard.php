@@ -254,9 +254,29 @@ class Dashboard extends MX_Controller
                 'username'      =>  $arrUsu['usu_nombre'],
                 'email'      =>  $arrUsu['usu_correo']
             );
-            $this->session->set_userdata($data);
-            $this->session->set_flashdata('message', 'inserto');
-            redirect('registro-paso-2/'.base64_encode($email),'refresh');
+            
+
+            $tUsuario = $this->recursos->generateToken($email);
+            ## Mensaje de activacion para email
+            $dMsg = array(
+                'nombre' => $nombre,
+                //'url'    => base_url().'activate/'.base64_encode($email).'/'.$tUsuario,
+                'correo' => $email
+                );
+            $html_msg = $this->mensaje->html_mensaje($dMsg);
+            $subject    = "Bienvenido(a) a Tallentus";
+            $correo = new PHPMailer();
+            $correo->SetFrom('no-replay@tallentus.com');
+            $correo->AddAddress($email, $nombre);
+            $correo->Subject = $subject;
+            $correo->MsgHTML($html_msg);
+            if(!$correo->Send()) {
+                redirect('','refresh');
+            } else {
+                $this->session->set_userdata($data);
+                $this->session->set_flashdata('message', 'inserto');
+                redirect('registro-paso-2/'.base64_encode($email),'refresh');
+            }
         }else{
             $this->session->set_flashdata('message', 'error');
             print_r(validation_errors());
@@ -266,6 +286,29 @@ class Dashboard extends MX_Controller
 
         ## Inicio de Sesión
         $data['page_title'] = 'Bolsa Trabajo';
+    }
+
+    public function activate_user($email,$token){
+        $vEmail = base64_decode($email);
+        $vToken = base64_decode($token);
+
+        $vReturnIdUser = $this->inicio->search_user($vEmail);
+
+        if($vReturnIdUser != FALSE){
+
+            $rowRecovery = $this->inicio->valid_token($vReturnIdUser->id,$token);
+            
+            if(count($rowRecovery) != 0){
+                $data = array(
+                    'token_register'      => ''
+                );
+                $rowRecovery = $this->inicio->_update('tbl_usuario',$data,$vReturnIdUser->id);
+                redirect(base_url(),'refresh');
+            }else{
+                $this->session->set_flashdata('flashSuccess', 'Token no existe o ya expiro!');
+                redirect(base_url(),'refresh');
+            }
+        }
     }
 
     public function entrar(){
@@ -481,7 +524,6 @@ class Dashboard extends MX_Controller
         }
     }
 
-
     public function editar_areas(){
         $web_css  = array(
             array('href'=>'assets/css/bootstrap.css'),
@@ -532,7 +574,6 @@ class Dashboard extends MX_Controller
         echo Modules::run('template/front',$data);
     }
 
-
     public function update_areas(){
         $ids = base64_decode($this->input->post('id'));
         if($ids == null or empty($ids)){
@@ -558,7 +599,6 @@ class Dashboard extends MX_Controller
             }
         }
     }
-
 
     public function listado_distrito($distrito_seo = null){
         $web_css  = array(

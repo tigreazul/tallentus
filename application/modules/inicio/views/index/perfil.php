@@ -2,12 +2,8 @@
         <div class="container info-head">
             <div class="col-md-2">
                 <?php 
-                    $imagen = $this->session->userdata('imagen');
-                    if($imagen != ''):
-                        echo "<img src='".$BASE_URL."uploads/usuario/".$imagen."' class='img-responsive img-center img-circle' style='width:100%;height: 18%;'>";
-                    else: 
-                        echo '<img src="'.$frontend.'assets/img/user_new.svg" class="img-responsive img-center img-circle" style="width:100%">';
-                    endif 
+                    $imagen = $datos['usu_imagen_perfil'];
+                    echo "<img src='".$BASE_URL."uploads/usuario/".$imagen."' class='img-responsive img-center img-circle' style='width:100%;height: 18%;'>";
                 ?>
             </div>
             <div class="col-md-10">

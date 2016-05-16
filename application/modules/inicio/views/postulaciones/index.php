@@ -23,7 +23,10 @@
         </div>
         <div class="col-md-1">
             <div class="row">
-                <img src="<?php echo $frontend ?>assets/img/user_new.svg" class="img-responsive img-center img-circle" width="100%">
+                <?php 
+                    $imagen = $tbl_postu['emp_logo'];
+                    echo "<img src='".$BASE_URL."uploads/empresa/".$imagen."' class='img-responsive img-center img-circle' style='width:100%;'>";
+                ?>
             </div>
         </div>
         <div class="col-md-11">

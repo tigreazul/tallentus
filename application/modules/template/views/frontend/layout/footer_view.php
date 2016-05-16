@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="row">
                             <h3>Bolsa de Trabajo</h3>
                             <ul class="list-unstyled">
@@ -13,7 +13,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <!-- <div class="col-md-3">
                         <div class="row">
                             <h3>Candidatos</h3>
                             <ul class="list-unstyled">
@@ -22,8 +22,8 @@
                                 <li><a href="#">Eliminar CV</a></li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                    </div> -->
+                    <div class="col-md-4">
                         <div class="row">
                             <h3>Envió de Ofertas</h3>
                             <ul class="list-unstyled">
@@ -33,7 +33,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="row">
                             <h3>Empresas</h3>
                             <ul class="list-unstyled">

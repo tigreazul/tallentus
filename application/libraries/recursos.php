@@ -53,7 +53,7 @@ class Recursos {
             //$path_public = './uploads/';
             //$path_public = $this->config->item('path_website').'uploads/'.date('Y').'/'.date('m').'/';
             $config['upload_path'] = $path_public;
-            $config['allowed_types'] = 'gif|jpg|png';
+            $config['allowed_types'] = 'gif|jpg|png|svg';
             $config['remove_spaces']=TRUE;
             $config['max_size'] = '2000';
             $config['max_width'] = '12024';
@@ -102,6 +102,22 @@ class Recursos {
         $config['height'] = 100;
         $this->load->library('image_lib', $config);
         $this->image_lib->resize();
+    }
+
+
+    public function generateToken($userId){
+        $static_str='TALLENTUS';
+        $currenttimeseconds = date("mdY_His");
+        $token_id=$static_str.$userId.$currenttimeseconds;
+        return base64_encode($token_id);
+    }
+
+
+    public function suma_meses($fecha,$cantidad){
+        // $fecha = date('Y-m-j');
+        $nuevafecha = strtotime ( '+'.$cantidad.' month' , strtotime ( $fecha ) ) ;
+        $nuevafecha = date ( 'Y-m-j' , $nuevafecha );
+        return $nuevafecha;
     }
 
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid" id="info-empresa">
     <div class="container info-head">
         <div class="col-md-1">
-            <img src="<?php echo $frontend ?>assets/img/user_new.svg" class="img-responsive img-center img-circle" width="100%">
+            <img src="<?php echo $BASE_URL ?>uploads/empresa/<?php echo $empresa['emp_logo'] ?>" class="img-responsive img-center img-circle" width="100%">
         </div>
         <div class="col-md-11">
             <div class="row">
