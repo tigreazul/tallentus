@@ -46,22 +46,40 @@ class Buscador extends MX_Controller
         $fecha    = $this->session->userdata('fecha');
         $palabra  = $this->session->userdata('palabra');
 
-        if($distrito){
+        $arrD = array();
+        $arrS = array();
+        $arrF = array();
+        $arrP = array();
 
+        if(!empty($distrito)){
+            $arrD = array(
+                'd.dist_seo' => $distrito
+            );
         }
-        if($salario){
-            
+        if(!empty($salario)){
+            $arrS = array(
+                'p.postu_salario >=' => $salario
+            );   
         }
-        if($fecha){
-            
+        if(!empty($fecha)){
+            $arrF = array(
+                "DATE_FORMAT(p.postu_fecha_creacion,'%Y-%m-%d')" => $fecha
+            );
         }
-        if($palabra){
-            
+        if(!empty($palabra)){
+            $arrP = array(
+                'p.postu_titulo' => $palabra
+            );
         }
 
 
-        $arr_final_search = array();
-        $postula = $this->empresa->_buscador();
+        $arr_final_search = array_merge($arrD,$arrP);
+        $final_where = array_merge($arrS,$arrF);
+
+        // var_dump($arr_final_search);
+        // die();
+        
+        $postula = $this->empresa->_buscador($arr_final_search,$final_where);
 
         ## Inicio de Sesión
         $page_title = 'Tallentus - Inicio';

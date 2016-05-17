@@ -144,9 +144,13 @@ class Empresa_model extends CI_Model {
         // }
 
 
-    public function _buscador($arrDato){
+    public function _buscador($arrDato,$arrDato_where){
         if(!empty($arrDato)){
-            $this->db->where($arrDato);
+            $this->db->like($arrDato);
+        }
+
+        if(!empty($arrDato_where)){
+            $this->db->where($arrDato_where);
         }
 
         $this->db->where('p.postu_estado',1);
