@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-4 col-sm-12 col-xs-12 text-right btn-datos btn-empleo">
                     <input type="hidden" id="f" name="f" value="<?php echo base64_encode($tbl_postu['postu_id']) ?>">
-                    <a class="waves-effect waves-light pull-right btn btn-red mgBot10 modal-trigger" href="<?php echo base_url().'postular/'.base64_encode($tbl_postu['postu_id']) ?>">Postular a Ofertas</a><br>
+                    <a class="waves-effect waves-light pull-right btn btn-red mgBot10 modal-trigger" href="<?php echo base_url().'postular/'.base64_encode($tbl_postu['postu_id']) ?>">Postular</a><br>
                     <!-- <a href="#!" class="waves-effect waves-red pull-right btn send-msg add_favorite" onclick="messageInfo(1);">Agregar a favoritos</a> -->
                 </div>
             </div>

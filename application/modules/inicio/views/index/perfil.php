@@ -48,7 +48,7 @@
                 <div class="col-md-2 center">
                     <h4>Historial</h4>
                     <p>+<?php echo count($postu) ?> postulaciones</p>
-                    <span>Hace 7 días</span>
+                    <!-- <span>Hace 7 días</span> -->
                 </div>
                 <div class="col-md-10">
                     <div class="row lst-historial">

@@ -27,79 +27,79 @@
 
                     <div class="col-md-10">
                         <div class="input-field">
-                            <input placeholder="" value="" name="titulo" id="titulo" type="text" class="validate">
+                            <input placeholder="" value="" name="titulo" id="titulo" type="text" class="validate texto" required>
                             <label for="first_name">Titulo</label>
                         </div>
                     </div>
 
                     <div class="col-md-10">
                         <div class="input-field">
-                            <input placeholder="" value="" id="descripcion" name="descripcion" type="text" class="validate">
+                            <input placeholder="" value="" id="descripcion" name="descripcion" type="text" class="validate " minlength="6" required>
                             <label for="first_name">Descripción</label>
                         </div>
                     </div>
 
                     <div class="col-md-10">
                         <div class="input-field">
-                            <input placeholder="" name="beneficio" value=""  type="text" class="validate">
+                            <input placeholder="" name="beneficio" value=""  type="text" class="validate texto">
                             <label for="first_name">Beneficio</label>
                         </div>
                     </div>
 
                     <div class="col-md-10">
                         <div class="input-field">
-                            <input placeholder="" name="requisito" value="" id="requisito" type="text" class="validate">
+                            <input placeholder="" name="requisito" value="" id="requisito" type="text" class="validate texto">
                             <label for="first_name">Requisitos</label>
                         </div>
                     </div>
 
                     <div class="col-md-10">
                         <div class="input-field">
-                            <input placeholder="" name="vacantes" value="" id="vacantes" type="text" class="validate">
+                            <input placeholder="" name="vacantes" value="" id="vacantes" type="text" class="validate numero" maxlength="2" minlength="1" required> 
                             <label for="first_name">Vacantes</label>
                         </div>
                     </div>
 
                     <div class="col-md-10">
                         <div class="input-field">
-                            <input placeholder="" name="experiencia" value="" id="experiencia" type="text" class="validate">
+                            <input placeholder="" name="experiencia" value="" id="experiencia" type="text" class="validate numero" maxlength="2" minlength="1"  required>
                             <label for="first_name">Tiempo de experiencia</label>
                         </div>
                     </div>
 
                     <div class="col-md-10">
                         <div class="input-field">
-                            <input placeholder="" name="salario" type="text" class="validate">
+                            <input placeholder="" name="salario" type="text" class="validate numero">
                             <label for="first_name">Salario</label>
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('distrito',$cbo_distrito,'','required="required" class="select-materialcss"'); ?>
+                            <?php echo form_dropdown('distrito',$cbo_distrito,'','required="required" class="select-materialcss" required'); ?>
                             <label for="first_name">Distrito</label>
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('jornada',$cbo_jornada,'','required="required" class="select-materialcss"'); ?>
+                            <?php echo form_dropdown('jornada',$cbo_jornada,'','required="required" class="select-materialcss" required'); ?>
                             <label for="first_name">Jornada</label>
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('contrato',$cbo_contrato,'','required="required" class="select-materialcss"'); ?>
+                            <?php echo form_dropdown('contrato',$cbo_contrato,'','required="required" class="select-materialcss" required'); ?>
                             <label for="first_name">Tipo de Contrato</label>
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('educacion',$cbo_educacion,'','required="required" class="select-materialcss"'); ?>
+                            <?php echo form_dropdown('educacion',$cbo_educacion,'','required="required" class="select-materialcss" required'); ?>
                             <label for="first_name">Educación</label>
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('area',$cbo_area,'','required="required" class="select-materialcss"'); ?>
+                            <?php echo form_dropdown('area',$cbo_area,'','required="required" class="select-materialcss" required'); ?>
                             <label for="first_name">Area</label>
                         </div>
                     </div>  

@@ -144,6 +144,25 @@ class Empresa_model extends CI_Model {
         // }
 
 
+    public function _buscador($arrDato){
+        if(!empty($arrDato)){
+            $this->db->where($arrDato);
+        }
+
+        $this->db->where('p.postu_estado',1);
+        $this->db->select('*');
+        $this->db->join('tbl_contrato c','c.contra_id = p.postu_tipo_contrato_id');
+        $this->db->join('tbl_distrito d','d.dist_id = p.postu_distrito_id');
+        $this->db->join('tbl_educacion edu','edu.edu_id = p.postu_educacion_id');
+        $this->db->join('tbl_empresa e','e.emp_id = p.postu_empresa_id');
+        $this->db->join('tbl_jornada j','j.jor_id = p.postu_jornada_id');
+        $this->db->join('tbl_areas a','a.area_id = p.postu_area_id');
+        $this->db->from('tbl_postulaciones p');
+        $query = $this->db->get();
+        $arrayResultado = $query->result();
+        return $arrayResultado;
+    
+    }
 
 
 }

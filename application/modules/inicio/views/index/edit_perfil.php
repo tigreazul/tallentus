@@ -19,8 +19,8 @@
     </div>
 
     <div class="row registro">
-        <form id="imageform" method="post" enctype="multipart/form-data" action='<?php echo $BASE_URL ?>upload' style="margin-top: 12px;">
-            <div class="col-md-2 mg30">
+        <div class="col-md-2 mg30">
+            <form id="imageform" method="post" enctype="multipart/form-data" action='<?php echo $BASE_URL ?>upload' style="margin-top: 12px;">
                 <div class="row bg">
                     <div class="image_upload" id="preview">
                         <?php 
@@ -43,8 +43,40 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+
+            <?php 
+            $cv = $arrEmail['usu_cv'];
+            if($cv != ''):
+                echo "<a href=".$BASE_URL."uploads/usuario/".$cv." target='_blank'><span class='glyphicon glyphicon-save-file' style='font-size: 52px;padding: 10px;'></span> Descargar CV</a>";
+                echo '<br><a href="'.$BASE_URL.'delete-cv" title="">Eliminar</a>';
+            else: 
+                ?>
+                <br>Cargar CV
+                <form id="formCv" method="post" enctype="multipart/form-data" action='<?php echo $BASE_URL ?>upload-cv' style="margin-top: 12px;">
+                    <div class="row bg">
+                        <div class="image_upload" id="previewcv">
+
+                            
+                        </div>
+                        <div class="file-field input-field">
+                            <div class="btn btn-red">
+                                <span>Imagen</span>
+                                <input type="file" name="loadCv" id="loadCv" />
+                                <!-- <input type="file"> -->
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Cargar...">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <?php
+            endif 
+            ?>
+        </div>
+
+
         <form action="<?php echo $BASE_URL ?>finalizar" method="post" class="registro_final">
             <div class="col-md-10 mg30">
 
@@ -136,7 +168,7 @@
 
                     <div class="col-md-2">
                         <div class="input-field">
-                            <input placeholder="Ingrese su número" value="<?php echo $arrEmail['usu_nro_documento']?>" id="email" name="nrodocumento" type="text" class="validate numero">
+                            <input placeholder="Ingrese su número" value="<?php echo $arrEmail['usu_nro_documento']?>" id="email" name="nrodocumento" type="text" class="validate numero" maxlength="8">
                             <label for="first_name">Número de documento</label>
                         </div>
                     </div>
@@ -154,13 +186,13 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-field">
-                                <input placeholder="Ingrese su nro. fijo" value="<?php echo $arrEmail['usu_telefono']?>" id="email" name="fijo" type="text" class="validate numero">
+                                <input placeholder="Ingrese su nro. fijo" value="<?php echo $arrEmail['usu_telefono']?>" id="email" name="fijo" type="text" class="validate numero" maxlength="7">
                                 <label for="first_name">Telefono fijo</label>
                             </div>
                         </div>
                         <div class="col-md-4 padR0">
                             <div class="input-field">
-                                <input placeholder="Ingrese su nro. celular" value="<?php echo $arrEmail['usu_telefono']?>" id="celular" name="celular" type="text" class="validate numero">
+                                <input placeholder="Ingrese su nro. celular" value="<?php echo $arrEmail['usu_telefono']?>" id="celular" name="celular" type="text" class="validate numero" maxlength="9">
                                 <label for="first_name">Celular</label>
                             </div>
                         </div>
@@ -212,10 +244,21 @@ $(document).ready(function() {
         //Antes de iniciar debemos de limpiar la visualización para verificar que no aya ninguna imagen anterior
         $("#preview").html('');
         //Colocamos una imagen de load
-        $("#preview").html('<img src="loader.gif" alt="Uploading...."/>');
+        $("#preview").html('<img src="<?php echo $frontend ?>assets/img/loader.gif" alt="Cargando...."/>');
         // Llamamos al evento ajaxform para pasar los datos obtenidos del input
         $("#imageform").ajaxForm({
             target: '#preview'
+        }).submit();
+    });
+
+    $(document).on('change','#loadCv', function(){
+        //Antes de iniciar debemos de limpiar la visualización para verificar que no aya ninguna imagen anterior
+        $("#previewcv").html('');
+        //Colocamos una imagen de load
+        $("#previewcv").html('<img src="<?php echo $frontend ?>assets/img/loader.gif" alt="Cargando...."/>');
+        // Llamamos al evento ajaxform para pasar los datos obtenidos del input
+        $("#formCv").ajaxForm({
+            target: '#previewcv'
         }).submit();
     });
 </script>

@@ -13,18 +13,34 @@
                     <img src="<?php echo $frontend ?>assets/img/logo.png" class="logo">
                 </a>
             </div>
-            
+
+            <?php $url = $this->uri->segment(1); ?>
+            <?php if($url != ''): ?>
+                <div class="col-md-6 col-lg-offset-1 search_nav">
+                    <form class="form-horizontal form-search" action="<?php echo $BASE_URL ?>d" method="post">
+                        <div class="input-bg col-md-7">
+                            <div class="form-group">
+                                <input type="text" name="palabra" class="form-control" placeholder="Buscar">
+                                <a class="btn btn-default" href="#">
+                                    <img src="<?php echo $frontend ?>assets/img/settings.svg" width="20">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button class="btn btn-red waves pull-right waves-effect" type="submit">Buscar ofertas</button>
+                        </div>
+                    </form>
+                </div>
+            <?php endif ?>
 
             <?php  
-            $url = $this->uri->segment(1); 
             if($url == 'empresa'): ?>
                 <?php if(!empty($this->session->userdata('email_emp'))): ?>
                     <div id="micuenta" class="navbar-collapse collapse pull-right">
                         <div class="pull-right">
-                            <!-- <img src="<?php echo $frontend ?>assets/img/user_new.svg" class="img-circle img-responsive"> -->
                             <?php 
                                 $imagen = $this->session->userdata('imagen');
-                                echo "<img src='".$BASE_URL."uploads/empresa/thumbs/".$imagen."' class='img-circle img-responsive'>";
+                                echo "<img src='".$BASE_URL."uploads/empresa/".$imagen."' class='img-circle img-responsive'>";
                             ?>
                         </div>
                         <div class="pull-right">
@@ -46,7 +62,7 @@
                         <div class="pull-right">
                             <?php 
                                 $imagen = $this->session->userdata('imagen');
-                                echo "<img src='".$BASE_URL."uploads/usuario/thumbs/".$imagen."' class='img-circle img-responsive' style='width: 40px;height: 35px;'>";
+                                echo "<img src='".$BASE_URL."uploads/usuario/".$imagen."' class='img-circle img-responsive' style='width: 40px;height: 35px;'>";
                             ?>
                         </div>
                         <div class="pull-right">

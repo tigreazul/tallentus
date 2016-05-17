@@ -54,6 +54,26 @@ $(function() {
         return false;
     });
 
+    $('.searchs').submit(function(){
+        var action = $(this).attr('action');
+        var datos = $(this).serialize();
+        
+        // $.get(action, function(data, status){
+        //     alert("Data: " + data + "\nStatus: " + status);
+        // });
+        
+        $.ajax({
+            url : action,
+            data: datos,
+            type: 'POST',
+            success : function(data) {
+                
+            }
+        });
+        return false;
+    });
+
+
     $("#discapacidad").click(function(){  
         if($(this).is(':checked')){  
             $('#texotdiscapacidad').removeClass('none');

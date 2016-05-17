@@ -51,7 +51,7 @@
                 <div class="col-md-offset-1 col-md-10">
                     <div class="row">
                         <h3>Suscribete</h3>
-                        <form method="post" class="frm">
+                        <form method="post" class="frm forms" action="<?php echo $BASE_URL ?>suscripcion">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="text-justify">Suscribete a nuestro boletin, para recibir las ultimas ofertas!</p>
@@ -59,7 +59,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <span class="icon-envelope"></span>
-                                        <input type="text" class="form-control" placeholder="Correo electrónico" required>
+                                        <input type="text" class="form-control" name="email" placeholder="Correo electrónico" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12"><button class="waves" type="submit">Suscribirse</button></div>

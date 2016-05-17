@@ -34,25 +34,9 @@ class Dashboard extends MX_Controller
 
         # Logica
         // Areas
-        $areas = $this->empresa->_get_lista('tbl_areas');
-        foreach ($areas as $ar) {
-            $arr[] = array(
-                'id' => $ar->area_id,
-                'describe' => $ar->area_nombre,
-                'seo' => $ar->area_seo,
-                'postu' => count($this->empresa->_get_lista_multiple('tbl_postulaciones','result',array('postu_area_id' => $ar->area_id,'postu_estado' => 1)))
-                );
-        }
+        $arr = $this->_get_areas();
         // Distrito
-        $distrito = $this->empresa->_get_lista('tbl_distrito');
-        foreach ($distrito as $dist) {
-            $dst[] = array(
-                'id_dist' => $dist->dist_id,
-                'describe_dist' => $dist->dist_descripcion,
-                'postu_dist' => count($this->empresa->_get_lista_multiple('tbl_postulaciones','result',array('postu_distrito_id' => $dist->dist_id,'postu_estado' => 1)))
-                );
-        }
-
+        $dst = $this->_get_distrito();
 
         $postula = $this->empresa->_get_postulaciones('result');
         $empresa = $this->empresa->_get_lista('tbl_empresa');
@@ -243,36 +227,40 @@ class Dashboard extends MX_Controller
                 'usu_estado'        => 1,
                 'usu_tipo_doc'      => 1,
                 'id_rol'            => 0,
+                'usu_descripcion'   => '',
+                'usu_imagen_perfil' => 'user_new.svg',
                 'usu_fecha_creacion'=> date('Y-m-d H:m:s')
             );
             
-            $id = $this->inicio->_insertar('tbl_usuario',$arr_persona);
-            $arrUsu = $this->inicio->_obtener_id((int)$id);
-            $data = array(
-                'is_logued_in'  =>  TRUE,
-                'id_usuario'    =>  $arrUsu['usu_id'],
-                'username'      =>  $arrUsu['usu_nombre'],
-                'email'      =>  $arrUsu['usu_correo']
-            );
             
 
             $tUsuario = $this->recursos->generateToken($email);
             ## Mensaje de activacion para email
+            //'url'    => base_url().'activate/'.base64_encode($email).'/'.$tUsuario,
             $dMsg = array(
                 'nombre' => $nombre,
-                //'url'    => base_url().'activate/'.base64_encode($email).'/'.$tUsuario,
                 'correo' => $email
-                );
+            );
             $html_msg = $this->mensaje->html_mensaje($dMsg);
+            //echo $html_msg;
+            
             $subject    = "Bienvenido(a) a Tallentus";
             $correo = new PHPMailer();
-            $correo->SetFrom('no-replay@tallentus.com');
+            $correo->SetFrom('no-reply@tallentus.com','Tallentus');
             $correo->AddAddress($email, $nombre);
             $correo->Subject = $subject;
             $correo->MsgHTML($html_msg);
             if(!$correo->Send()) {
                 redirect('','refresh');
             } else {
+                $id = $this->inicio->_insertar('tbl_usuario',$arr_persona);
+                $arrUsu = $this->inicio->_obtener_id((int)$id);
+                $data = array(
+                    'is_logued_in'  =>  TRUE,
+                    'id_usuario'    =>  $arrUsu['usu_id'],
+                    'username'      =>  $arrUsu['usu_nombre'],
+                    'email'      =>  $arrUsu['usu_correo']
+                );
                 $this->session->set_userdata($data);
                 $this->session->set_flashdata('message', 'inserto');
                 redirect('registro-paso-2/'.base64_encode($email),'refresh');
@@ -524,6 +512,38 @@ class Dashboard extends MX_Controller
         }
     }
 
+    public function upload_cv(){
+        $id_usuario = $this->session->userdata('id_usuario');
+        if($id_usuario == null or empty($id_usuario)){
+            redirect('','refresh');
+        }else{
+            $cv = $this->recursos->upload_img_products('loadCv','uploads/usuario/',false,'pdf|doc|docx');
+            if(!is_array($cv)){
+                $arrDatos = array(
+                    'usu_cv' => $cv
+                );
+                $id = $this->inicio->_update('tbl_usuario',$arrDatos,$id_usuario);
+                echo "<a href='".base_url()."uploads/usuario/".$cv."'  target='_blank'><span class='glyphicon glyphicon-save-file'></span> Descargar CV</a>";
+            }
+        }
+    }
+
+    public function delete_cv(){
+        $id_usuario = $this->session->userdata('id_usuario');
+        if($id_usuario == null or empty($id_usuario)){
+            redirect('','refresh');
+        }else{
+            $usu = $this->inicio->_obtener_id($id_usuario);
+            unlink('uploads/usuario/'.$usu['usu_cv']);
+            $arrDatos = array(
+                    'usu_cv' => ''
+                );
+            $id = $this->inicio->_update('tbl_usuario',$arrDatos,$id_usuario);
+
+            redirect('editar-perfil','refresh');
+        }
+    }
+
     public function editar_areas(){
         $web_css  = array(
             array('href'=>'assets/css/bootstrap.css'),
@@ -693,6 +713,36 @@ class Dashboard extends MX_Controller
         );
         echo Modules::run('template/head_front',$data);
         echo Modules::run('template/front',$data);   
+    }
+
+
+
+
+    public function _get_distrito(){
+        $distrito = $this->empresa->_get_lista('tbl_distrito');
+        foreach ($distrito as $dist) {
+            $dst[] = array(
+                'id_dist' => $dist->dist_id,
+                'describe_dist' => $dist->dist_descripcion,
+                'postu_dist' => count($this->empresa->_get_lista_multiple('tbl_postulaciones','result',array('postu_distrito_id' => $dist->dist_id,'postu_estado' => 1)))
+            );
+        }
+
+        return $dst;
+    }
+
+
+    public function _get_areas(){
+        $areas = $this->empresa->_get_lista('tbl_areas');
+        foreach ($areas as $ar) {
+            $arr[] = array(
+                'id' => $ar->area_id,
+                'describe' => $ar->area_nombre,
+                'seo' => $ar->area_seo,
+                'postu' => count($this->empresa->_get_lista_multiple('tbl_postulaciones','result',array('postu_area_id' => $ar->area_id,'postu_estado' => 1)))
+                );
+        }
+        return $arr;
     }
 
 }

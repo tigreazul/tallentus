@@ -91,7 +91,7 @@ function quitar_tildes($cadena) {
 
 
 
-function slugify($text)
+function slugify($text,$search = false)
 {   
     $text = preg_replace('/á|Á/', 'a', $text);
     $text = preg_replace('/é|É/', 'e', $text);
@@ -117,6 +117,10 @@ function slugify($text)
     $text = strtolower($text);
     // remove unwanted characters
     $text = preg_replace('~[^-\w]+~', '', $text);
+    if($search == true):
+        return '';
+    endif;
+
     if(empty($text)):
         return 'n-a';
     endif;

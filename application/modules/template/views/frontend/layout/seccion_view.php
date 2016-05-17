@@ -93,7 +93,7 @@
                             </div>
                             <div class="form-group">
                                 <span><img src="<?php echo $frontend; ?>assets/img/pwd.svg" class="img-responsive img-rounded"></span>
-                                <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+                                <input type="password" name="password" class="form-control" placeholder="Contraseña" required minlength="6">
                             </div>
                             <div class="form-group">
                                 <span><img src="<?php echo $frontend; ?>assets/img/email.svg" class="img-responsive img-rounded"></span>

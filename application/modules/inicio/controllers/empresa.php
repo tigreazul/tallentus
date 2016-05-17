@@ -119,11 +119,15 @@ class Empresa extends MX_Controller
                 $html_msg = $this->mensaje->html_mensaje($dMsg);
                 $subject    = "Bienvenido(a) a Tallentus";
                 $correo = new PHPMailer();
-                $correo->SetFrom('no-replay@tallentus.com');
+                $correo->SetFrom('no-reply@tallentus.com','Tallentus - Empresa');
                 $correo->AddAddress($email, $razon);
                 $correo->Subject = $subject;
                 $correo->MsgHTML($html_msg);
-                redirect('empresa','refresh');
+                if(!$correo->Send()) {
+                    redirect('empresa','refresh');
+                }else{
+                    redirect('empresa','refresh');
+                }
             }
         }else{
             redirect('empresa','refresh');
@@ -603,6 +607,7 @@ class Empresa extends MX_Controller
         }else{
             $postulaciones = $this->empresa->_get_postulaciones('result',null,$vId);
             // $postulaciones = $this->empresa->_get_(null,2);
+            $arr = array();
             foreach ($postulaciones as $postula) {
                 $arr[] = array(
                     'idpostu'   => $postula->postu_id,

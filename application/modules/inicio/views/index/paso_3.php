@@ -69,7 +69,7 @@
 
                     <div class="col-md-2">
                         <div class="input-field">
-                            <input placeholder="" value="<?php echo $arrEmail['usu_nombre'] ?>" name="nombre" id="nombres" type="text" class="validate">
+                            <input placeholder="" value="<?php echo $arrEmail['usu_nombre'] ?>" name="nombre" id="nombres" type="text" class="validate texto">
                             <input value="<?php echo base64_encode($arrEmail['usu_id']) ?>" name="id" type="hidden">
                             <label for="first_name">Nombres</label>
                         </div>
@@ -77,14 +77,14 @@
 
                     <div class="col-md-2">
                         <div class="input-field">
-                            <input placeholder="Ingrese sus apellidos" value="" id="apellidos" name="apellido" type="text" class="validate">
+                            <input placeholder="Ingrese sus apellidos" value="" id="apellidos" name="apellido" type="text" class="validate texto">
                             <label for="first_name">Apellidos</label>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="input-field">
-                            <input placeholder="Ingrese su correo electronico o e-mail" name="email" value="<?php echo $arrEmail['usu_correo'] ?>" id="email" type="email" class="validate">
+                            <input placeholder="Ingrese su correo electronico o e-mail" name="email" value="<?php echo $arrEmail['usu_correo'] ?>" id="email" type="email" class="validate ">
                             <label for="first_name">Correo Electronico o E-mail</label>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
 
                     <div class="col-md-2">
                         <div class="input-field">
-                            <input placeholder="Ingrese su número" id="email" name="nrodocumento" type="text" class="validate">
+                            <input placeholder="Ingrese su número" id="email" name="nrodocumento" type="text" class="validate numero" maxlength="8">
                             <label for="first_name">Número de documento</label>
                         </div>
                     </div>
@@ -164,13 +164,13 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-field">
-                                <input placeholder="Ingrese su nro. fijo" id="email" name="fijo" type="text" class="validate">
+                                <input placeholder="Ingrese su nro. fijo" id="email" name="fijo" type="text" class="validate numero" maxlength="7">
                                 <label for="first_name">Telefono fijo</label>
                             </div>
                         </div>
                         <div class="col-md-4 padR0">
                             <div class="input-field">
-                                <input placeholder="Ingrese su nro. celular" id="celular" name="celular" type="text" class="validate">
+                                <input placeholder="Ingrese su nro. celular" id="celular" name="celular" type="text" class="validate numero" maxlength="9">
                                 <label for="first_name">Celular</label>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
 
                     <div class="col-md-8">
                         <div class="input-field">
-                            <input placeholder="Ingrese su ripo de discapacidad" id="texotdiscapacidad" name="texotdiscapacidad" type="text" class="validate">
+                            <input placeholder="Ingrese su ripo de discapacidad" id="texotdiscapacidad" name="texotdiscapacidad" type="text" class="validate texto">
                             <label for="first_name">Por favor, indica que tipo de discapacidad posees</label>
                             <span class="help-text">No es obligatorio que declares ningún tipo de discapacidad; pero si lo
                                 haces, podemos ayudarte a que te encuentren aquellas empresas que dispongan de puestos

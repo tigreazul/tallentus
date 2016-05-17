@@ -34,7 +34,7 @@ class Recursos {
     }
 
 
-    public function upload_img_products($name,$ruta,$thumb = false){
+    public function upload_img_products($name,$ruta,$thumb = false,$type = false){
         $resultadoUpload = false;
         $path_public = "";
         try {
@@ -53,7 +53,12 @@ class Recursos {
             //$path_public = './uploads/';
             //$path_public = $this->config->item('path_website').'uploads/'.date('Y').'/'.date('m').'/';
             $config['upload_path'] = $path_public;
-            $config['allowed_types'] = 'gif|jpg|png|svg';
+            if(!empty($type) and $type == true){
+                $config['allowed_types'] = $type;
+            }else{
+                $config['allowed_types'] = 'gif|jpg|png|svg';
+            }
+
             $config['remove_spaces']=TRUE;
             $config['max_size'] = '2000';
             $config['max_width'] = '12024';

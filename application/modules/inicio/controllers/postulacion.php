@@ -94,6 +94,62 @@ class Postulacion extends MX_Controller
     }
     
 
+
+
+
+    public function suscripcion(){
+        
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|min_length[2]|max_length[150]|xss_clean');
+        
+        $this->form_validation->set_message('required', 'El %s es requerido');
+        $this->form_validation->set_message('min_length', 'El %s debe tener al menos %s carácteres');
+        $this->form_validation->set_message('max_length', 'El %s debe tener al menos %s carácteres');
+        $arrayResultado = array();
+        if($this->form_validation->run() == FALSE)
+        {
+            $arrayResultado = array(
+                "resultado"=>0,
+                "mensaje"=> validation_errors()
+            );
+        }else{
+            $email   = $this->input->post('email');
+            ## Mensaje de activacion para email
+            $dMsg = array(
+                'correo' => $email
+            );
+            $html_msg = $this->mensaje->html_suscripcion($dMsg);
+            //echo $html_msg;
+            
+            $subject    = "Suscripción a Tallentus";
+            $correo = new PHPMailer();
+            $correo->SetFrom('no-reply@tallentus.com','Tallentus');
+            $correo->AddAddress($email, $email);
+            $correo->Subject = $subject;
+            $correo->MsgHTML($html_msg);
+            $correo->CharSet = 'UTF-8';
+            if(!$correo->Send()) {
+                $arrayResultado = array(
+                    "resultado"=>0,
+                    "mensaje"=>'Ocurrio un error intentelo nuevamente'
+                );
+            } else {
+                $arrIns = array(
+                    'susc_correo' => $email,
+                    'susc_fecha'  => date('Y-m-d H:m:s')
+                    );
+                $this->inicio->_insertar('tbl_suscriptores',$arrIns);
+
+                $arrayResultado = array(
+                    "resultado" => 1,
+                    "mensaje"   => 'Gracias por suscribirte!!',
+                    "envio"     => base_url()
+                );
+            }
+        }
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($arrayResultado));
+    }
+
 }
 
 /*
