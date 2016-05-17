@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-05-16 14:44:55
+Date: 2016-05-17 05:22:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `tbl_areas` (
   `area_seo` text,
   `area_estado` int(11) DEFAULT NULL,
   PRIMARY KEY (`area_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbl_areas
@@ -37,6 +37,15 @@ INSERT INTO `tbl_areas` VALUES ('3', 'Atención al Cliente', null, 'atencion-al-
 INSERT INTO `tbl_areas` VALUES ('4', 'Administración y finanzas', null, 'administracion-y-finanzas', '1');
 INSERT INTO `tbl_areas` VALUES ('5', 'Call Center / Telemarketing', null, 'call-center-telemarketing', '1');
 INSERT INTO `tbl_areas` VALUES ('6', 'Producción', null, 'produccion', '1');
+INSERT INTO `tbl_areas` VALUES ('7', 'Marketing / Publicidad', null, 'marketing-publicidad', '1');
+INSERT INTO `tbl_areas` VALUES ('8', 'Mantenimiento', null, 'mantenimiento', '1');
+INSERT INTO `tbl_areas` VALUES ('9', 'Seguridad', null, 'seguridad', '1');
+INSERT INTO `tbl_areas` VALUES ('10', 'Educación / Docencia e Investigación', null, 'educacion-docencia-e-investigacion', '1');
+INSERT INTO `tbl_areas` VALUES ('11', 'Medicina / Salud', null, 'medicina-salud', '1');
+INSERT INTO `tbl_areas` VALUES ('12', 'Contabilidad', null, 'contabilidad', '1');
+INSERT INTO `tbl_areas` VALUES ('13', 'Gastronomía', null, 'gastronomia', '1');
+INSERT INTO `tbl_areas` VALUES ('14', 'Hotelería / Turismo', null, 'hoteleria-turismo', '1');
+INSERT INTO `tbl_areas` VALUES ('15', 'Tecnología / Ingenieria', null, 'tecnologia-ingenieria', '1');
 
 -- ----------------------------
 -- Table structure for `tbl_areasxusuario`
@@ -358,6 +367,22 @@ INSERT INTO `tbl_rol` VALUES ('2', 'EDITOR');
 INSERT INTO `tbl_rol` VALUES ('4', 'USUARIO');
 
 -- ----------------------------
+-- Table structure for `tbl_suscriptores`
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_suscriptores`;
+CREATE TABLE `tbl_suscriptores` (
+  `susc_id` int(11) NOT NULL AUTO_INCREMENT,
+  `susc_correo` varchar(500) DEFAULT NULL,
+  `susc_fecha` date DEFAULT NULL,
+  `susc_estado` int(11) DEFAULT '1',
+  PRIMARY KEY (`susc_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tbl_suscriptores
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `tbl_tipo_doc`
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_tipo_doc`;
@@ -413,7 +438,7 @@ CREATE TABLE `tbl_usuario` (
 INSERT INTO `tbl_usuario` VALUES ('1', null, 'Juan', 'peres', 'administrador', '7c4a8d09ca3762af61e59520943dc26494f8941b', null, 'M', null, null, null, null, '1', null, null, null, '1', '65659598', '1', 'user_new.svg', null);
 INSERT INTO `tbl_usuario` VALUES ('3', null, 'juan', 'Tello Trujillox', 'zkated@gmail.com1', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', null, 'M', '2147483647', '0', '1', 'fgfggffgnf', '1', '1976-05-02 00:00:00', '2016-04-18 18:04:35', null, '1', 'fdgfdgfdgfd', '0', 'user_new.svg', null);
 INSERT INTO `tbl_usuario` VALUES ('4', null, 'dfs', 'xxx', '12344@123.com', '601f1889667efaebb33b8c12572835da3f027f78', null, 'M', '44444', '55555555', '1', 'ssssssssss', '1', '2001-03-01 00:00:00', '2016-04-12 08:04:03', null, '1', '4444444', '0', 'user_new.svg', null);
-INSERT INTO `tbl_usuario` VALUES ('5', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et porta dolor. Nulla eu diam elementum ipsum interdum semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent et porttitor odio, vulputate consectetur lectus. Sed id tempor mauris. Pellentesque cursus arcu et dolor gravida lobortis.', 'Junior', 'zkated', 'zkated@gmail.com', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', null, 'M', '6565', '6565', '1', 'dfdgdf', '1', '2016-05-04 22:16:44', '2016-05-07 07:05:24', '2003-05-04 00:00:00', '1', '5656655', '0', '12967266_10154259838071833_8492271592279407791_o.jpg', null);
+INSERT INTO `tbl_usuario` VALUES ('5', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et porta dolor. Nulla eu diam elementum ipsum interdum semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent et porttitor odio, vulputate consectetur lectus. Sed id tempor mauris. Pellentesque cursus arcu et dolor gravida lobortis.', 'Junior', 'zkated', 'zkated@gmail.com', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', 'laravel-5_0-docs.pdf', 'M', '6565', '6565', '1', 'dfdgdf', '1', '2016-05-04 22:16:44', '2016-05-07 07:05:24', '2003-05-04 00:00:00', '1', '5656655', '0', '12967266_10154259838071833_8492271592279407791_o.jpg', null);
 INSERT INTO `tbl_usuario` VALUES ('6', null, 'Miguel', '', 'miguel@miki.com', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', null, 'M', '3587851', '0', '0', '', '1', '1977-06-04 00:00:00', '2016-05-03 16:05:35', null, '1', '22554488', '0', 'user_new.svg', null);
 
 -- ----------------------------
