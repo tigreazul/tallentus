@@ -115,7 +115,7 @@ class Inicio_model extends CI_Model {
 
     public function search_user($email)
     {
-        $this->db->select('user_id id');    
+        $this->db->select('usu_id id');    
         $this->db->from('tbl_usuario');
         $this->db->where('usu_correo',$email);
         $this->db->where('usu_estado',1);
@@ -130,11 +130,11 @@ class Inicio_model extends CI_Model {
     }
 
 
-    public function valid_token($id_user,$token)
+    public function valid_token($table,$arrUser,$token)
     {
         $this->db->select('token_register');
-        $this->db->from('tbl_usuario');
-        $this->db->where('user_id',$id_user);  
+        $this->db->from($table);
+        $this->db->where($arrUser);  
         $this->db->where('token_register',$token);
         $query = $this->db->get();
         return $query->result();

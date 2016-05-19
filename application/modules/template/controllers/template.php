@@ -6,6 +6,8 @@ class Template extends MX_Controller{
     {
         parent::__construct();
         $this->load->model('template_model', 'inicios', TRUE);
+        $this->load->model('inicio/inicio_model', 'inicio', TRUE);
+        $this->load->model('inicio/empresa_model', 'empresa', TRUE);
     }
 
 	## Dashboard Admin
@@ -40,6 +42,18 @@ class Template extends MX_Controller{
     }
     
     function  front($data){ 
+        $usuario = $this->session->userdata('id_usuario');
+        $empresa = $this->session->userdata('id_usuarioemp');
+        $menu = array();
+        if(!empty($usuario)){
+            $menu = $this->inicio->_obtener_id($usuario);
+        }
+        if(!empty($empresa)){
+            $menu = $this->empresa->_obtener_id($empresa);
+        }
+
+        // var_dump($menu);
+        $data['menu'] = $menu;
         $this->load->view('frontend/inicio_view',$data);
     }
 

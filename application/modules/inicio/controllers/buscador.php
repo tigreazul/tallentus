@@ -72,13 +72,8 @@ class Buscador extends MX_Controller
             );
         }
 
-
         $arr_final_search = array_merge($arrD,$arrP);
         $final_where = array_merge($arrS,$arrF);
-
-        // var_dump($arr_final_search);
-        // die();
-        
         $postula = $this->empresa->_buscador($arr_final_search,$final_where);
 
         ## Inicio de Sesión

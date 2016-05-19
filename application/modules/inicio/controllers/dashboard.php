@@ -209,7 +209,6 @@ class Dashboard extends MX_Controller
 
     public function registrar()
     {
-        
         $this->form_validation->set_rules('nombre', 'Nombre', 'required|xss_clean');
         $this->form_validation->set_rules('email', 'email', 'required|xss_clean');
         $this->form_validation->set_rules('password', 'password', 'required|xss_clean');
@@ -219,6 +218,7 @@ class Dashboard extends MX_Controller
             $nombre     = $this->input->post('nombre');
             $email      = $this->input->post('email');
             $password   = $this->input->post('password');
+            $tUsuario = $this->recursos->generateToken($email);
 
             $arr_persona = array(
                 'usu_nombre'        => $nombre,
@@ -228,22 +228,23 @@ class Dashboard extends MX_Controller
                 'usu_tipo_doc'      => 1,
                 'id_rol'            => 0,
                 'usu_descripcion'   => '',
+                'token_register'    => $tUsuario,
                 'usu_imagen_perfil' => 'user_new.svg',
                 'usu_fecha_creacion'=> date('Y-m-d H:m:s')
             );
             
             
-
-            $tUsuario = $this->recursos->generateToken($email);
             ## Mensaje de activacion para email
-            //'url'    => base_url().'activate/'.base64_encode($email).'/'.$tUsuario,
             $dMsg = array(
                 'nombre' => $nombre,
+                'url'    => base_url().'activate/'.base64_encode($email).'/'.$tUsuario.'/'.base64_encode('user'),
                 'correo' => $email
             );
-            $html_msg = $this->mensaje->html_mensaje($dMsg);
-            //echo $html_msg;
-            
+
+            $html_msg = $this->mensaje->html_mensaje_confirmacion($dMsg);
+            // echo $html_msg;
+            // die();
+
             $subject    = "Bienvenido(a) a Tallentus";
             $correo = new PHPMailer();
             $correo->SetFrom('no-reply@tallentus.com','Tallentus');
@@ -276,27 +277,52 @@ class Dashboard extends MX_Controller
         $data['page_title'] = 'Bolsa Trabajo';
     }
 
-    public function activate_user($email,$token){
+    public function activate($email,$token,$user){
         $vEmail = base64_decode($email);
         $vToken = base64_decode($token);
+        $vUser  = base64_decode($user);
 
-        $vReturnIdUser = $this->inicio->search_user($vEmail);
+        if($vUser == 'user'){
+            $vReturnIdUser = $this->inicio->search_user($vEmail);
 
-        if($vReturnIdUser != FALSE){
+            if($vReturnIdUser != FALSE){
+                $arrWhere = array('usu_id' => $vReturnIdUser->id);
 
-            $rowRecovery = $this->inicio->valid_token($vReturnIdUser->id,$token);
-            
-            if(count($rowRecovery) != 0){
-                $data = array(
-                    'token_register'      => ''
-                );
-                $rowRecovery = $this->inicio->_update('tbl_usuario',$data,$vReturnIdUser->id);
-                redirect(base_url(),'refresh');
-            }else{
-                $this->session->set_flashdata('flashSuccess', 'Token no existe o ya expiro!');
-                redirect(base_url(),'refresh');
+                $rowRecovery = $this->inicio->valid_token('tbl_usuario',$arrWhere,$token);
+                
+                if(count($rowRecovery) != 0){
+                    $data = array(
+                        'token_register'      => ''
+                    );
+                    $rowRecovery = $this->inicio->_update('tbl_usuario',$data,$vReturnIdUser->id);
+                    redirect(base_url(),'refresh');
+                }else{
+                    $this->session->set_flashdata('flashSuccess', 'Token no existe o ya expiro!');
+                    redirect(base_url(),'refresh');
+                }
             }
+        }elseif($vUser == 'empresa'){
+            $vReturnIdUser = $this->empresa->search_empresa($vEmail);
+
+            if($vReturnIdUser != FALSE){
+                $arrWhere = array('emp_id' => $vReturnIdUser->id);
+                $rowRecovery = $this->inicio->valid_token('tbl_empresa',$arrWhere,$token);
+                
+                if(count($rowRecovery) != 0){
+                    $data = array(
+                        'token_register'      => ''
+                    );
+                    $rowRecoverys = $this->empresa->_update('tbl_empresa',$data,$vReturnIdUser->id);
+                    redirect(base_url(),'refresh');
+                }else{
+                    $this->session->set_flashdata('flashSuccess', 'Token no existe o ya expiro!');
+                    redirect(base_url(),'refresh');
+                }
+            }
+        }else{
+            redirect(base_url(),'refresh');
         }
+
     }
 
     public function entrar(){

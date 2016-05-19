@@ -56,8 +56,8 @@ class Mensaje {
 				                                        <br>
 				                                        &nbsp;&nbsp;&nbsp;&nbsp;Bienvenido/a, '.$arr['nombre'].' . 
 				                                        <br>
-				                                        Le damos la bienvenida a <a href="http://conectagro.pe/" target="_blank">conectagro.pe</a>, Te encuentras a pocos instantes de 
-				                                        ingresar a la plataforma ecommerce. Para activar tu cuenta, haz click en el siguiente enlace:
+				                                        Le damos la bienvenida a <a href="http://tallentus.com/" target="_blank">tallentus.com</a>, Te encuentras a pocos instantes de 
+				                                        ingresar a la plataforma. Para activar tu cuenta, haz click en el siguiente enlace:
 				                                    </td>
 				                                </tr>
 				                            </tbody>
@@ -79,14 +79,13 @@ class Mensaje {
 				                            <tbody>
 				                                <tr>
 				                                    <td style="text-align:left">
-				                                        <p>Es importante este proceso para poder verificar tu cuenta. Luego podrás ofertar y demandar los productos agricolas que desees.</p>
 				                                        <br>
 				                                        Tus credenciales de acceso son las siguientes:
 														<br>
 				                                        Correo electr&#243;nico: <strong>'.$arr['correo'].'</strong> <br>
 				                                        Contrase&#241;a: <strong>La que eligio</strong>
-
-				                                        <p>El equipo de Conectagro.pe</p>
+				                                        <br>
+				                                        <i>El equipo de tallentus.com</i>
 				                                    </td>
 				                                </tr>
 				                            </tbody>
@@ -103,8 +102,6 @@ class Mensaje {
 
 		return $html;
 	}
-
-
 
 	public function html_mensaje($arr){
 		$html = '
@@ -250,5 +247,7 @@ class Mensaje {
 		';
 		return $html;
 	}
+
+	// public function html
 
 }

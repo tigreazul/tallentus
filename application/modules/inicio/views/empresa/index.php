@@ -28,35 +28,35 @@
 
                     <div class="col-md-2">
                         <div class="input-field">
-                            <input placeholder="" value="" name="nombre" id="nombres" type="text" class="validate">
+                            <input placeholder="" value="" name="nombre" id="nombres" type="text" class="validate texto" required>
                             <label for="first_name">Nombres</label>
                         </div>
                     </div>
 
                     <div class="col-md-2">
                         <div class="input-field">
-                            <input placeholder="" value="" id="razon" name="razon" type="text" class="validate">
+                            <input placeholder="" value="" id="razon" name="razon" type="text" class="validate" required>
                             <label for="first_name">Razon Social</label>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="input-field">
-                            <input placeholder="" name="email" value="" id="email" type="email" class="validate">
+                            <input placeholder="" name="email" value="" id="email" type="email" class="validate" required>
                             <label for="first_name">Correo Electronico o E-mail</label>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="input-field">
-                            <input placeholder="" name="ruc" value="" id="ruc" type="text" class="validate">
+                            <input placeholder="" name="ruc" value="" id="ruc" type="text" class="validate numero" maxlength="11">
                             <label for="first_name">RUC</label>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="input-field">
-                            <input placeholder="" name="password" value="" id="password" type="password" class="validate">
+                            <input placeholder="" name="password" value="" id="password" type="password" class="validate" minlength="6">
                             <label for="first_name">Contraseña</label>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
 
                     <div class="col-md-4">
                         <div class="input-field">
-                            <input placeholder="" id="email" name="fijo" type="text" class="validate">
+                            <input placeholder="" id="email" name="fijo" type="text" class="validate numero" maxlength="7" minlength="7">
                             <label for="first_name">Telefono fijo</label>
                         </div>
                     </div>

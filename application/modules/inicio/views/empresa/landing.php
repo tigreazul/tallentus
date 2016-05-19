@@ -1,32 +1,8 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="banner">
-        <!-- masterslider -->
-        <div class="master-slider ms-skin-default" id="masterslider">
-            <!-- new slide -->
-            <div class="ms-slide slide-1" data-delay="14">
-                <img src="<?php echo $frontend ?>assets/masterslider/blank.gif" data-src="<?php echo $frontend ?>assets/img/baner.jpg" alt="Slide1 background">
-            </div>
-            <!-- end of slide -->
-        </div>
-        
-
-    </div>
+<?php $this->load->view('../layout/vacio'); ?>
 
     <div class="container">
-        <div class="row suscribirse">
-            <form method="post" class="frm">
-                <div class="col-md-6">
-                    <p>Suscribete a nuestro boletin, para recibir las ultimas ofertas!</p>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <span class="icon-envelope"></span>
-                        <input type="text" class="form-control" placeholder="Correo electrónico" required>
-                    </div>
-                </div>
-                <div class="col-md-2"><button class="waves" type="submit">Suscribirse</button></div>
-            </form>
-        </div>
+        <?php $this->load->view('../layout/suscribete'); ?>
         <!-- Example row of columns -->
         <div class="row">
             <article class="col-md-12">

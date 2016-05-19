@@ -1,55 +1,60 @@
 <?php $this->load->view('layout/datos_perfil'); ?>
 
     <section class="container" id="historial-cuenta">
-        <article class="col-md-12">
+        <?php $this->load->view('../layout/filtros_empresa'); ?>
+        <article class="col-md-10">
             <div class="row text-justify info">
-                <h3>Mis Vacantes</h3>
+                <h3>Mis Postulantes - <span><?php echo $post['postu_titulo'] ?></span></h3>
             </div>
 
             <div class="row historial">
-                <?php if(!empty($postu)): ?>
+                <?php //var_dump($emp); die(); ?>
+                <?php if(!empty($emp)): ?>
                     <div class="col-md-12 bg">
                         <div class="row lst_empleos">
                             <table class="highlight" data-page-size="6">
                                 <thead>
                                     <tr>
-                                        <td>Aviso</td>
-                                        <td>Caduca el</td>
-                                        <td>Inscritos</td>
-                                        <td>Status</td>
+                                        <td>Imagen</td>
+                                        <td>Dato personales</td>
+                                        <td>Correo</td>
+                                        <td>Edad</td>
                                         <td>Acciones</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <?php foreach ($postu as $vaca) : ?>
+                                        <?php foreach ($emp as $vaca) : ?>
                                             <tr class="boder">
                                                 <td>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 bordered_pad" data-type="empleo">
                                                         <div class="info pull-left">
-                                                            <h3><?php echo $vaca['titulo'] ?></h3>
+                                                            <img src="<?php echo $BASE_URL ?>uploads/usuario/<?php echo $vaca->usu_imagen_perfil ?>" style="width: 112px;">
+                                                            <?php if(!empty($vaca->usu_cv)): ?>
+                                                                <a href="<?php echo $BASE_URL ?>uploads/usuario/<?php echo $vaca->usu_cv ?>" target='_blank'>
+                                                                    <i class='glyphicon glyphicon-save-file' style='font-size: 32px;padding: 10px;'></i>cv
+                                                                </a>
+                                                            <?php endif ?>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 bordered_pad" data-type="empleo">
                                                         <div class="info pull-left">
-                                                            <?php echo $vaca['caduca'] ?>
+                                                            <h3><?php echo $vaca->usu_nombre." ".$vaca->usu_apellidos ?></h3>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 bordered_pad" data-type="empleo">
                                                         <div class="info pull-left">
-                                                            <a href="<?php echo $BASE_URL ?>empresa/vacantes-por-usuario/<?php echo $vaca['idpostu'] ?>" title="">
-                                                            <?php echo $vaca['total'] ?>
-                                                            </a>
+                                                            <?php echo $vaca->usu_correo ?>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 bordered_pad" data-type="empleo">
                                                         <div class="info pull-left">
-                                                            <div style="width: 10px;height: 10px; border-radius: 20px; background: green"></div>
+                                                            <?php echo date('Y') - $vaca->usu_fecha_nacimiento ?>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -64,8 +69,15 @@
                                                             <i class="glyphicon glyphicon-erase"></i>
                                                         </a>
                                                     </div> -->
+
                                                     <div class="col-md-2">
-                                                        <a href="<?php echo $BASE_URL ?>empresa/delete-vacantes/<?php echo $vaca['idpostu'] ?>" title="">
+                                                        <a href="" title="">
+                                                            <i class="glyphicon glyphicon-eye-open"></i>
+                                                        </a>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-2">
+                                                        <a href="" title="">
                                                             <i class="glyphicon glyphicon-trash"></i>
                                                         </a>
                                                     </div>
@@ -82,7 +94,6 @@
                 <?php endif ?>
             </div>
         </article>
-
     </section>
 
     <style type="text/css" media="screen">

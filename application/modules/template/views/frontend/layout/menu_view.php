@@ -57,12 +57,26 @@
                     <?php endif ?>
                 <?php endif ?>
             <?php else: ?>
-                <?php if(!empty($this->session->userdata('email'))): ?>
+                <?php if(!empty($this->session->userdata('email_emp'))): ?>
                     <div id="micuenta" class="navbar-collapse collapse pull-right">
                         <div class="pull-right">
                             <?php 
                                 $imagen = $this->session->userdata('imagen');
-                                echo "<img src='".$BASE_URL."uploads/usuario/".$imagen."' class='img-circle img-responsive' style='width: 40px;height: 35px;'>";
+                                echo "<img src='".$BASE_URL."uploads/empresa/".$imagen."' class='img-circle img-responsive'>";
+                            ?>
+                        </div>
+                        <div class="pull-right">
+                            <p class="text-right">Bienvenido - <a href="<?php echo base_url() ?>salir" style="line-height: 0;">Salir</a></p>
+                            <h5 class="text-right"><a href="<?php echo base_url() ?>empresa/mi-empresa"><?php echo $this->session->userdata('email_emp') ?></a></h5>
+                        </div>
+                    </div><!--/.navbar-collapse -->
+                <?php endif ?>
+                
+                <?php if(!empty($this->session->userdata('email'))): ?>
+                    <div id="micuenta" class="navbar-collapse collapse pull-right">
+                        <div class="pull-right">
+                            <?php 
+                                echo "<img src='".$BASE_URL."uploads/usuario/".$menu['usu_imagen_perfil']."' class='img-circle img-responsive' style='width: 40px;height: 35px;'>";
                             ?>
                         </div>
                         <div class="pull-right">

@@ -75,31 +75,31 @@
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('distrito',$cbo_distrito,'','required="required" class="select-materialcss" required'); ?>
+                            <?php echo form_dropdown('distrito',$cbo_distrito,'','required="required" class="select-materialcss"'); ?>
                             <label for="first_name">Distrito</label>
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('jornada',$cbo_jornada,'','required="required" class="select-materialcss" required'); ?>
+                            <?php echo form_dropdown('jornada',$cbo_jornada,'','required="required" class="select-materialcss"'); ?>
                             <label for="first_name">Jornada</label>
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('contrato',$cbo_contrato,'','required="required" class="select-materialcss" required'); ?>
+                            <?php echo form_dropdown('contrato',$cbo_contrato,'','required="required" class="select-materialcss"'); ?>
                             <label for="first_name">Tipo de Contrato</label>
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('educacion',$cbo_educacion,'','required="required" class="select-materialcss" required'); ?>
+                            <?php echo form_dropdown('educacion',$cbo_educacion,'','required="required" class="select-materialcss"'); ?>
                             <label for="first_name">Educación</label>
                         </div>
                     </div>
                     <div class="col-md-10">
                         <div class="input-field">
-                            <?php echo form_dropdown('area',$cbo_area,'','required="required" class="select-materialcss" required'); ?>
+                            <?php echo form_dropdown('area',$cbo_area,'','required="required" class="select-materialcss"'); ?>
                             <label for="first_name">Area</label>
                         </div>
                     </div>  

@@ -12,16 +12,16 @@
             <div class="col-md-10 col-lg-offset-1">
                 <form class="form-inline" action="<?php echo $BASE_URL ?>d/" method="post">
                     <div class="row">
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-10">
                             <span class="icon-search-outline"></span>
                             <input type="text" class="form-control" name="palabra" id="inputSearch" placeholder="Programador web, electricista, abogado, etc.">
                         </div>
                         <div class="col-md-2">
                             <button type="submit" class="btn btn-default waves">Buscar empleos</button>
                         </div>
-                        <div class="col-md-2">
+                        <!-- <div class="col-md-2">
                             <a href="#">Búsqueda avanzada</a>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>

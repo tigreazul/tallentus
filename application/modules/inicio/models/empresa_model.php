@@ -23,12 +23,26 @@ class Empresa_model extends CI_Model {
         }
     }
 
+    public function _obtener_id($id){
+        $arrayWhere = array("emp_id"=>$id);
+        $this->db->where($arrayWhere);  
+        $this->db->select('*');
+        $this->db->from('tbl_empresa');
+        $this->db->limit(1);
+        $query = $this->db->get();
+        $arrayResultado = $query->row_array();
+        return $arrayResultado;
+    }
 
     public function _update($tabla,$arrDatos,$id){
         $this->db->where('emp_id', $id);
         return $this->db->update($tabla, $arrDatos);
     }
     
+    public function _update_generico($tabla,$arrDatos,$idwhere){
+        $this->db->where($idwhere);
+        return $this->db->update($tabla, $arrDatos);
+    }
 
     public function _obtener_email($email){
         $arrayWhere = array("emp_email"=>$email);
@@ -131,6 +145,20 @@ class Empresa_model extends CI_Model {
         return $arrayResultado;
     }
 
+
+    public function _postulacion_usuario($idPostu = null){
+        if(!empty($idPostu)){
+            $this->db->where('p.postu_id',$idPostu);
+        }
+        $this->db->select('*');
+        $this->db->join('tbl_usuario u','u.usu_id = up.usu_id');
+        $this->db->join('tbl_postulaciones p','p.postu_id = up.postu_id');
+        $this->db->from('tbl_usuarioxpostulacion up');
+        $query = $this->db->get();
+        $arrayResultado = $query->result();
+        return $arrayResultado;
+    }
+
     ## POSTULACIONES
         // public function _get_lista_id($tabla,$id,$key){
         //     if(!empty($id)){
@@ -168,5 +196,21 @@ class Empresa_model extends CI_Model {
     
     }
 
+
+    public function search_empresa($email)
+    {
+        $this->db->select('emp_id id');    
+        $this->db->from('tbl_empresa');
+        $this->db->where('emp_email',$email);
+        $this->db->where('emp_estado',1);
+        $this->db->where('id_rol',0);
+        $query = $this->db->get();
+        if($query->num_rows() == 1)
+        {
+            return $query->row();
+        }else{
+            return false;
+        }
+    }
 
 }

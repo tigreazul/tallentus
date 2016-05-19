@@ -640,6 +640,82 @@ class Empresa extends MX_Controller
         echo Modules::run('template/front',$data);
     }
 
+
+    public function delete_vacante($id){
+        $arrDatos = array(
+            'postu_estado' => 0
+        );
+        $idWhere = array(
+            'postu_id' => $id
+        );
+        $id = $this->empresa->_update_generico('tbl_postulaciones',$arrDatos,$idWhere);
+
+        redirect('empresa/mis-vacantes','refresh');
+    }
+
+    public function detalle_vacantes_postula($id){
+        $web_css  = array(
+            array('href'=>'assets/css/bootstrap.css'),
+            array('href'=>'assets/materialize/css/materialize.css'),
+            array('href'=>'https://fonts.googleapis.com/icon?family=Material+Icons'),
+            array('href'=>'assets/css/theme.css'),
+            array('href'=>'assets/css/waves.css'),
+            array('href'=>'assets/masterslider/style/masterslider.css'),
+            array('href'=>'assets/masterslider/skins/default/style.css'),
+        );
+        $web_js   = array(  
+            
+        );    
+        ## Inicio de Sesión
+        $page_title = 'Tallentus - Vacantes';
+        ## Template Admin Dashboard
+        $module     = 'inicio';
+        $view       = 'empresa/vacantes_detalle';
+
+
+        #Logica
+        $vEmail = $this->session->userdata('email_emp');
+        $vId = $this->session->userdata('id_usuarioemp');
+        if($vEmail == null or empty($vEmail)){
+            redirect('','refresh');
+        }else{
+            $postulaciones = $this->empresa->_get_postulaciones('result',null,$vId);
+            
+            $distrito = $this->empresa->_get_lista('tbl_distrito');
+            foreach ($distrito as $dist) {
+                $dst[] = array(
+                    'id_dist' => $dist->dist_id,
+                    'describe_dist' => $dist->dist_descripcion,
+                );
+            }
+            
+            $postu = $this->empresa->_get_postulaciones('row',$id);
+            $arr = $this->empresa->_postulacion_usuario($id);
+            // echo '<pre>';print_r($dd);echo '</pre>';
+            // die();
+            $arrEmail = $this->empresa->_obtener_email($vEmail);
+            if(count($arrEmail)>0){
+                $tEmail = $arrEmail;
+            }else{
+                redirect('','refresh');
+            }
+        }
+
+        #Vistas
+        $data = array(
+            'titulo'     => $page_title,
+            'web_css'    => $web_css,
+            'web_js'     => $web_js,
+            'datos'      => $tEmail,
+            'emp'        => $arr,
+            'distrito'   => $dst,
+            'post'       => $postu,
+            'module'     => $module,
+            'view_file'  => $view
+        );
+        echo Modules::run('template/head_front',$data);
+        echo Modules::run('template/front',$data);
+    }
 }
 
 /*
