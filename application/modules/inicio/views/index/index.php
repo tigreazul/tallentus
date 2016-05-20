@@ -1,5 +1,8 @@
 <!--Main jumbotron for a primary marketing message or call to action -->
-    
+    <?php if($this->session->flashdata('flashSuccess') != ''): ?>
+        <p class="bg-success mensaje"><?php echo $this->session->flashdata('flashSuccess') ?></p>
+    <?php endif ?>
+
     <?php $this->load->view('../layout/buscador'); ?>
 
     <div class="container">

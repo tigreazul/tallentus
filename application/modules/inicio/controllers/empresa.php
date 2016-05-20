@@ -92,6 +92,7 @@ class Empresa extends MX_Controller
             $fijo           = $this->input->post('fijo');
             $descripcion    = $this->input->post('descripcion');
             $password       = $this->input->post('password');
+            $tUsuario       = $this->recursos->generateToken($email);
 
             $arrDatos = array(
                 'emp_nombre'            => $nombre,
@@ -105,6 +106,7 @@ class Empresa extends MX_Controller
                 'emp_logo'              => 'user_new.svg',
                 'emp_clave'             => sha1($password),
                 'emp_fecha_creacion'    => date('Y-m-d H:m:s'),
+                'token_register'        => $tUsuario,
                 'id_rol'                => 0,
                 'emp_seo'               => slugify($razon)
             );
@@ -114,9 +116,11 @@ class Empresa extends MX_Controller
                 ## Mensaje de activacion para email
                 $dMsg = array(
                     'nombre' => $razon,
+                    'url'    => base_url().'activate/'.base64_encode($email).'/'.$tUsuario.'/'.base64_encode('empresa'),
                     'correo' => $email
                     );
-                $html_msg = $this->mensaje->html_mensaje($dMsg);
+                $html_msg = $this->mensaje->html_mensaje_confirmacion($dMsg);
+                // echo $html_msg; die();
                 $subject    = "Bienvenido(a) a Tallentus";
                 $correo = new PHPMailer();
                 $correo->SetFrom('no-reply@tallentus.com','Tallentus - Empresa');
@@ -126,6 +130,7 @@ class Empresa extends MX_Controller
                 if(!$correo->Send()) {
                     redirect('empresa','refresh');
                 }else{
+                    $this->session->set_flashdata('flashSuccess', 'Se ha enviado un correo para activar la cuenta');
                     redirect('empresa','refresh');
                 }
             }

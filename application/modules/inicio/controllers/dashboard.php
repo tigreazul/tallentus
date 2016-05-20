@@ -242,8 +242,6 @@ class Dashboard extends MX_Controller
             );
 
             $html_msg = $this->mensaje->html_mensaje_confirmacion($dMsg);
-            // echo $html_msg;
-            // die();
 
             $subject    = "Bienvenido(a) a Tallentus";
             $correo = new PHPMailer();
@@ -255,16 +253,19 @@ class Dashboard extends MX_Controller
                 redirect('','refresh');
             } else {
                 $id = $this->inicio->_insertar('tbl_usuario',$arr_persona);
-                $arrUsu = $this->inicio->_obtener_id((int)$id);
-                $data = array(
-                    'is_logued_in'  =>  TRUE,
-                    'id_usuario'    =>  $arrUsu['usu_id'],
-                    'username'      =>  $arrUsu['usu_nombre'],
-                    'email'      =>  $arrUsu['usu_correo']
-                );
-                $this->session->set_userdata($data);
-                $this->session->set_flashdata('message', 'inserto');
-                redirect('registro-paso-2/'.base64_encode($email),'refresh');
+                $this->session->set_flashdata('flashSuccess', 'Se ha enviado un correo para activar la cuenta');
+                redirect('','refresh');
+
+                // $arrUsu = $this->inicio->_obtener_id((int)$id);
+                // $data = array(
+                //     'is_logued_in'  =>  TRUE,
+                //     'id_usuario'    =>  $arrUsu['usu_id'],
+                //     'username'      =>  $arrUsu['usu_nombre'],
+                //     'email'      =>  $arrUsu['usu_correo']
+                // );
+                // $this->session->set_userdata($data);
+                // $this->session->set_flashdata('message', 'inserto');
+                // redirect('registro-paso-2/'.base64_encode($email),'refresh');
             }
         }else{
             $this->session->set_flashdata('message', 'error');
@@ -286,7 +287,7 @@ class Dashboard extends MX_Controller
             $vReturnIdUser = $this->inicio->search_user($vEmail);
 
             if($vReturnIdUser != FALSE){
-                $arrWhere = array('usu_id' => $vReturnIdUser->id);
+                $arrWhere = array('usu_id' => $vReturnIdUser['usu_id']);
 
                 $rowRecovery = $this->inicio->valid_token('tbl_usuario',$arrWhere,$token);
                 
@@ -294,8 +295,18 @@ class Dashboard extends MX_Controller
                     $data = array(
                         'token_register'      => ''
                     );
-                    $rowRecovery = $this->inicio->_update('tbl_usuario',$data,$vReturnIdUser->id);
-                    redirect(base_url(),'refresh');
+                    $rowRecovery = $this->inicio->_update('tbl_usuario',$data,$vReturnIdUser['usu_id']);
+                    $this->session->set_flashdata('flashSuccess', 'Su cuenta ha sido activada con exito!');
+
+                    $arrUsu = $this->inicio->_obtener_email($vEmail);
+                    $data = array(
+                        'is_logued_in'  =>  TRUE,
+                        'id_usuario'    =>  $arrUsu['usu_id'],
+                        'username'      =>  $arrUsu['usu_nombre'],
+                        'email'      =>  $arrUsu['usu_correo']
+                    );
+                    $this->session->set_userdata($data);
+                    redirect('registro-paso-2/'.base64_encode($vEmail),'refresh');
                 }else{
                     $this->session->set_flashdata('flashSuccess', 'Token no existe o ya expiro!');
                     redirect(base_url(),'refresh');
@@ -313,7 +324,8 @@ class Dashboard extends MX_Controller
                         'token_register'      => ''
                     );
                     $rowRecoverys = $this->empresa->_update('tbl_empresa',$data,$vReturnIdUser->id);
-                    redirect(base_url(),'refresh');
+                    $this->session->set_flashdata('flashSuccess', 'Su cuenta ha sido activada con exito!');
+                    redirect(base_url().'empresa','refresh');
                 }else{
                     $this->session->set_flashdata('flashSuccess', 'Token no existe o ya expiro!');
                     redirect(base_url(),'refresh');
@@ -361,6 +373,7 @@ class Dashboard extends MX_Controller
                     "mensaje"   => 'Entraste!!',
                     "envio"     => base_url()
                 );
+                //redirect('registro-paso-2/'.base64_encode($email),'refresh');
             }else{
                 $this->session->set_flashdata('usuario_incorrecto', 'error_login');
                 $arrayResultado = array(

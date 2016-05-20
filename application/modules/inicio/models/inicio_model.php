@@ -115,7 +115,7 @@ class Inicio_model extends CI_Model {
 
     public function search_user($email)
     {
-        $this->db->select('usu_id id');    
+        $this->db->select('*');    
         $this->db->from('tbl_usuario');
         $this->db->where('usu_correo',$email);
         $this->db->where('usu_estado',1);
@@ -123,7 +123,7 @@ class Inicio_model extends CI_Model {
         $query = $this->db->get();
         if($query->num_rows() == 1)
         {
-            return $query->row();
+            return $query->row_array();
         }else{
             return false;
         }

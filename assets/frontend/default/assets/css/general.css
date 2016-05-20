@@ -1,1 +1,13 @@
 .logo{width: 160px;}.none{display: none;}.block{display: block;}
+
+.mensaje{
+	padding: 10px;
+	position: absolute;
+	top: 12%;
+	z-index: 100;
+	margin-left: 40%;
+    background-color: #2DA72D !important;
+    font-weight: bold;
+    color: #fff;
+    font-size: 15px;
+}
